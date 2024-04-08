@@ -34,6 +34,9 @@
 
     
       <nav class="sidenav">
+        <button>Create new Listing</button>
+        <br>
+        <hr>
         <strong><u>Sort By:</u></strong>
         <select name="sort" id="sort">
           <option value="recent">Most Recent</option>
