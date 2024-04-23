@@ -39,6 +39,7 @@ if (mysqli_ping($con) && $_SERVER['REQUEST_METHOD'] =='POST') {
         var_dump($row);
         $_SESSION['Email'] = $email; // Store username in session
         $_SESSION['fname'] = $row['FirstName'];
+        $_SESSION['userid'] = $row['UserID'];
         header("Location: home.php");
         exit();
     }
