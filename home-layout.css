@@ -10,7 +10,12 @@ body{
     background-color: rgba(8,83,148,255);
     padding: 10px;
     text-decoration: none;
-    font-size: 20pt;
+    font-size: 24pt;
+    /* position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; */
 }
 .topnav a{
     color: rgb(255, 196, 0);
@@ -40,17 +45,59 @@ body{
     color:rgba(254,217,103,255);
 }
 .container{
-    float: right;
+    /* float: right;
     width: 84%;
-    overflow:hidden;
+    overflow:hidden; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 .listing{
-    width: 25%;
+    width: (33.33% - 20px);
     height: auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     overflow: hidden;
 }
 .listimg{
     max-width: 400px;
     max-height: 200px;
+}
+
+
+.container {
+    overflow-x: auto;
+}
+  
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+th, td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+
+@media only screen and (max-width: 760px) {
+th, td {
+    padding: 4px;
+}
+}
+
+@media only screen and (max-width: 480px) {
+th, td {
+    padding: 4px;
+}
+@media only screen and (max-width: 760px) {
+    .listing {
+        width: calc(50% - 20px); 
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .listing {
+        width: 100%; 
+    }
+}
 }
