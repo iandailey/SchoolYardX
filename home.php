@@ -71,11 +71,11 @@
     
 
     if (isset($_SESSION['Email'])) {
-      echo "<a href='additem.php'><button>Create new Listing</button></a>";
+      echo "<a href='additem.html'><button>Create new Listing</button></a>";
 
     } else {
       // Show login
-      echo "<a href='login.html' id='loginlink'>Login</a>";
+      echo "<a href='login.html' id='loginlink'><button>Create new Listing</button></a>";
     }
 
     error_reporting(E_ALL);

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="UM-layout.css">
+        <title>Add Item</title>
+    </head>
+
+    <body>
+        <header class="ribbon">
+            <a href="home.php">SchoolYard Exchange</a>
+        </header>
+        <main class="center">
+            <h2>Item</h2>
+            <form action="additem.php" method="POST">
+                <fieldset>
+<!-- 
+                    <label for="UserID">Enter UserID:</label>
+                    <input type="text" id="UserID" name="UserID"><br> -->
+                    
+                    <label for="prod_name">Enter product name:</label>
+                    <input type="text" id="prod_name" name="prod_name"><br>
+
+
+                    <label for="condition">Select the condition:</label>
+                    <select id="condition" name="condition">
+                      <option value="new">new</option>
+                      <option value="used - like new">used - like new</option>
+                      <option value="used - good">used - good</option>
+                      <option value="used - fair">used - fair</option>
+                    </select><br><br>
+
+                    <label for="category">Select a category:</label>
+                    <select id="category" name="category">
+                        <option value="Books">Books</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Home">Home</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Clothes">Clothes</option>
+                        <option value="Jewelery/Accessories">Jewelery/Accessories</option>
+                        <option value="Miscellaneous">Miscellaneous</option>
+                      </select><br><br>
+                    
+                    <!-- <label for="CategoryID">Enter categoryid:</label>
+                    <input type="text" id="CategoryID" name="CategoryID"><br> -->
+
+                    
+                    <label for="delivery">Select an delivery preference:</label>
+                    <select id="delivery" name="delivery">
+                        <option value="pickup">pickup</option>
+                        <option value="dropoff">dropoff</option>
+                        <option value="shipping">shipping</option>
+                    </select><br><br>
+                
+                    <label for="location">Select a location:</label>
+                    <select id="location" name="location">
+                        <option value="on-campus">on campus</option>
+                        <option value="off-campus">off campus</option>
+                    </select><br><br>
+                
+                    <label for="sold">Select an sold status:</label>
+                    <select id="sold" name="sold">
+                        <option value="available">available</option>
+                        <option value="sold">sold</option>
+                    
+                    </select><br><br>
+                    <button type="submit">submit listing</button>
+                </fieldset>
+            </form>
+        </main>
+    </body>
+</html>
