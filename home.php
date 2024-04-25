@@ -33,7 +33,7 @@
     </header>
 
     
-      <nav class="sidenav">
+     <nav class="sidenav">
         <button>Create new Listing</button>
         <br>
         <hr>
@@ -45,29 +45,29 @@
         </select>
         <br>
         <hr>
-        <input type="checkbox" name="oncampus" id="oncampcheck">
+        <input type="checkbox" class="location-checkbox" name="oncampus" id="oncampcheck">
         <label for="oncampcheck">On-Campus</label> <br> <br>
-        <input type="checkbox" name="offcampus" id="offcampcheck">
+        <input type="checkbox" class="location-checkbox" name="offcampus" id="offcampcheck">
         <label for="offcampcheck">Off-Campus</label>
         <br>
         <hr>
         <br>
-        <input type="checkbox" name="books" id="bookcheck" checked>
+        <input type="checkbox" class="category-checkbox" name="books" id="bookcheck" checked>
         <label for="bookcheck">Books</label> <br> <br>
-        <input type="checkbox" name="furniture" id="furncheck" checked>
+        <input type="checkbox" class="category-checkbox" name="furniture" id="furncheck" checked>
         <label for="furncheck">Furniture</label> <br> <br>
-        <input type="checkbox" name="home" id="homecheck" checked>
+        <input type="checkbox" class="category-checkbox" name="home" id="homecheck" checked>
         <label for="homecheck">Home</label> <br> <br>
-        <input type="checkbox" name="electronics" id="elecheck" checked>
+        <input type="checkbox" class="category-checkbox" name="electronics" id="elecheck" checked>
         <label for="elecheck">Electronics</label> <br> <br>
-        <input type="checkbox" name="clothes" id="clothescheck" checked>
+        <input type="checkbox" class="category-checkbox" name="clothes" id="clothescheck" checked>
         <label for="clothescheck">Clothes</label> <br> <br>
-        <input type="checkbox" name="jewel" id="jewelcheck" checked>
+        <input type="checkbox" class="category-checkbox" name="jewel" id="jewelcheck" checked>
         <label for="jewelcheck">Jewelry/Accessories</label> <br> <br>
-        <input type="checkbox" name="misc" id="misccheck" checked>
+        <input type="checkbox" class="category-checkbox" name="misc" id="misccheck" checked>
         <label for="misccheck">Miscellaneous</label> <br> <br>
-        <button type="button" id="select">select all</button>
-        <button type="button" id="deselect">deselect all</button>
+        <button type="button" id="select">Select All</button>
+        <button type="button" id="deselect">Deselect All</button>
       </nav>
     
     <main>
