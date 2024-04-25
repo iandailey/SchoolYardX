@@ -68,7 +68,7 @@
   <nav class="sidenav">
     <!-- create link to take user to adding item if they are logged in -->
     <?php
-    session_start();
+    
 
     if (isset($_SESSION['Email'])) {
       echo "<a href='additem.php'><button>Create new Listing</button></a>";
