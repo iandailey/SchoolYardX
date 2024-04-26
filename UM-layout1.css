@@ -1,0 +1,125 @@
+/* Basic reset for form elements */
+body, h2, form, fieldset, label, input, button, textarea {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Body and page layout */
+  body {
+    background-color: #f8f9fa;
+  }
+  
+  /* Header styles */
+  header.ribbon {
+    display: flex;
+    justify-content: flex-start;
+    background: rgba(8,83,148,255);;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  header.ribbon a {
+    text-decoration: none;
+    color: rgb(255, 196, 0);
+    margin-right: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    
+  }
+  
+  header.ribbon a:not(:first-child):hover {
+    text-decoration: underline;
+  }
+  
+  /* Main content area */
+  main.center {
+    background: #ffffff;
+    width: 60%;
+    margin: 30px auto;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Form layout */
+  form.create-listing-form {
+    display: block;
+  }
+  
+  /* Form headings */
+  h2 {
+    font-size: 24px;
+    color: #333;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Form field styles */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #eaeaea;
+    font-size: 16px;
+  }
+  
+  textarea {
+    height: 120px;
+    resize: none;
+  }
+  
+  /* File upload area */
+  .upload-section {
+    border: 2px dashed #eaeaea;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .drag-drop-area p {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  /* Publish button */
+  .publish-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: block; /* Make the button expand to full width */
+    width: 100%;
+  }
+  
+  .publish-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Checkbox styles */
+  .category-checkboxes {
+    margin-bottom: 20px;
+  }
+  
+  .category-checkboxes label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .category-checkboxes input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  

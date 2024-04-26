@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="UM-layout1.css">
+        <title>Create Listing</title>
+    </head>
+
+    <body>
+        <header class="ribbon">
+        
+            <a href="home.php" class="home-link">Home</a>
+            <a href="#" class="active">Create Listing</a>
+            <a href="profile.php">Profile</a>
+            <a href="favorites.php">Favorites</a>
+            <a href="dashboard.php">Dashboard</a>
+            <a href="inbox.php">Inbox</a>
+        </header>
+
+        <main class="center">
+            <!-- Adjusted heading to match screenshot -->
+            <h2>Create Listing</h2>
+            <form action="additem.php" method="POST" class="create-listing-form">
+                <fieldset>
+                    <!-- Image upload section -->
+                    <div class="upload-section">
+                        <label for="image_upload">Upload a Picture of Your Item</label>
+                        <input type="file" id="image_upload" name="image_upload" hidden>
+                        <div class="drag-drop-area">
+                            <p>Choose files to Upload or drag and drop them here</p>
+                        </div>
+                    </div>
+
+                    <label for="item_name">Item Name:</label>
+                    <input type="text" id="item_name" name="item_name" placeholder="What's your item called?"><br>
+
+                    <label for="price">Price:</label>
+                    <input type="text" id="price" name="price" placeholder="How much does your item cost?"><br>
+
+                    <!-- Description section -->
+                    <label for="description">Describe Your Item:</label>
+                    <textarea id="description" name="description" placeholder="Describe things about the item, including condition, color, size, age, etc."></textarea>
+
+                    <!-- Item category selection, adjusted to checkboxes -->
+                    <label for="category">Item Category:</label>
+                    <div class="category-checkboxes">
+                        <label><input type="checkbox" name="category" value="Books"> Books</label>
+                        <label><input type="checkbox" name="category" value="Furniture"> Furniture</label>
+                        <label><input type="checkbox" name="category" value="Home"> Home</label>
+                        <label><input type="checkbox" name="category" value="Electronics"> Electronics</label>
+                        <label><input type="checkbox" name="category" value="Clothes"> Clothes</label>
+                        <label><input type="checkbox" name="category" value="Jewelry/Accessories"> Jewelry / Accessories</label>
+                        <label><input type="checkbox" name="category" value="Miscellaneous"> Miscellaneous / Other</label>
+                    </div>
+
+                    <!-- Submit button adjusted to match the "Publish" button in the screenshot -->
+                    <button type="submit" class="publish-button">Publish</button>
+                </fieldset>
+            </form>
+        </main>
+    </body>
+</html>
