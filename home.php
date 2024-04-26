@@ -66,7 +66,7 @@
 
 
   <nav class="sidenav">
-    <!-- create link to take user to adding item if they are logged in -->
+    <!-- create link to take user to adding item if they are logged in --> <!-- test to see if I can push changes-->
     <?php
     
 
