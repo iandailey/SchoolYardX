@@ -125,59 +125,85 @@
   <main>
     <!-- item template -->
     <div class="container">
-      <?php
+    <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-      error_reporting(E_ALL);
-      ini_set('display_errors', 1);
-      $hostname = "schoolyardx.com";
-      $username = "Databaseadmin";
-      $password = "Ge0rg3Wa\$hingt0n";
-      $dbname = "SchoolYard_Exchange_GWU";
+$hostname = "schoolyardx.com";
+$username = "Databaseadmin";
+$password = "Ge0rg3Wa\$hingt0n";
+$dbname = "SchoolYard_Exchange_GWU";
 
-      // Create connection
-      $conn = new mysqli($hostname, $username, $password, $dbname);
+// Create connection
+$conn = new mysqli($hostname, $username, $password, $dbname);
 
-      // Check connection
-      if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-      }
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-      // SQL query to fetch data from the database
-      $sql = "SELECT * FROM Items";
-      $result = $conn->query($sql);
+// Construct the SQL query
+$sql = "SELECT * FROM Items WHERE ";
 
-      // Check if any rows were returned
-      if ($result->num_rows > 0) {
-        // Output data of each row  
-        echo '<table>';
-        echo '<tr>';
-        $count = 0;
-        while ($row = $result->fetch_assoc()) {
-          echo '<td>';
+// Array to store selected categories
+$selectedCategories = [];
+$categories = ['books', 'furniture', 'home', 'electronics', 'clothes', 'accessories', 'misc']; // List of all category checkboxes
 
-          echo '<div class="listing" id="listID">';
-          // echo '<img class="listimg" src="' . $row["image_url"] . '" /> <br />';
-          echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
-          echo '<h3 class="category">' . $row["Category"] . '</h3>';
-          echo '<p class="delivery">' . $row["DeliveryPreferences"] . '</p>';
-          echo '<p class="location">' . $row["Location"] . '</p>';
-          echo '<p class="soldstatus">' . $row["SoldStatus"] . '</p>';
-          echo '</div>';
-          echo '</td>';
+foreach ($categories as $category) {
+    if (isset($_GET[$category])) {
+        $selectedCategories[] = "'" . $category . "'"; // Add category name directly
+    }
+}
 
-          $count++;
-          if ($count % 3 == 0) {
+// If at least one category checkbox is selected, add them to the SQL query
+if (!empty($selectedCategories)) {
+    $sql .= "Category IN (" . implode(", ", $selectedCategories) . ")";
+} else {
+    // If no category checkbox is selected, retrieve all items
+    $sql .= "1"; // Just a placeholder condition to select all items
+}
+
+// Add location filter if selected
+if (isset($_GET['oncampus']) && isset($_GET['offcampus'])) {
+    // Both checkboxes are selected, retrieve all items
+} elseif (isset($_GET['oncampus'])) {
+    $sql .= " AND Location = 'On-Campus'";
+} elseif (isset($_GET['offcampus'])) {
+    $sql .= " AND Location = 'Off-Campus'";
+}
+
+// Execute the SQL query
+$result = $conn->query($sql);
+
+// Check if any rows were returned
+if ($result->num_rows > 0) {
+    // Output data of each row  
+    echo '<table>';
+    echo '<tr>';
+    $count = 0;
+    while ($row = $result->fetch_assoc()) {
+        echo '<td>';
+        echo '<div class="listing" id="listID">';
+        echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
+        echo '<h3 class="category">' . $row["Category"] . '</h3>';
+        echo '<p class="delivery">' . $row["DeliveryPreferences"] . '</p>';
+        echo '<p class="location">' . $row["Location"] . '</p>';
+        echo '<p class="soldstatus">' . $row["SoldStatus"] . '</p>';
+        echo '</div>';
+        echo '</td>';
+        $count++;
+        if ($count % 3 == 0) {
             echo '</tr><tr>';
-          }
         }
-        echo '</tr>';
-        echo '</table>';
-      } else {
-        echo "0 results";
-      }
+    }
+    echo '</tr>';
+    echo '</table>';
+} else {
+    echo "0 results";
+}
 
-      $conn->close();
-      ?>
+$conn->close();
+?>
       <script>
 
         // Get references to the input field and the container for listings
