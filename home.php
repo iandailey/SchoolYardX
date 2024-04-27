@@ -118,6 +118,28 @@
     <label for="misccheck">Miscellaneous</label> <br> <br>
     <button type="button" id="select">Select All</button>
     <button type="button" id="deselect">Deselect All</button>
+
+    <script>
+    // Get references to the select/deselect buttons and all checkboxes
+    const selectButton = document.getElementById('select');
+    const deselectButton = document.getElementById('deselect');
+    const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    // Function to select all checkboxes
+    selectButton.addEventListener('click', function() {
+        allCheckboxes.forEach(checkbox => {
+            checkbox.checked = true;
+        });
+    });
+
+    // Function to deselect all checkboxes
+    deselectButton.addEventListener('click', function() {
+        allCheckboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+    });
+</script>
+
     <button type="submit">Apply Filters</button>
     </form>
   </nav>
