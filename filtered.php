@@ -95,27 +95,27 @@
     </select>
     <br>
     <hr>
-    <input type="checkbox" class="location-checkbox" name="oncampus" id="oncampcheck" checked>
-    <label for="oncampcheck">On-Campus</label> <br> <br>
-    <input type="checkbox" class="location-checkbox" name="offcampus" id="offcampcheck" checked>
-    <label for="offcampcheck">Off-Campus</label>
-    <br>
-    <hr>
-    <br>
-    <input type="checkbox" class="category-checkbox" name="books" id="bookcheck" checked>
-    <label for="bookcheck">Books</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="furniture" id="furncheck" checked>
-    <label for="furncheck">Furniture</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="home" id="homecheck" checked>
-    <label for="homecheck">Home</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="electronics" id="elecheck" checked>
-    <label for="elecheck">Electronics</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="clothes" id="clothescheck" checked>
-    <label for="clothescheck">Clothes</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="accessories" id="accessoriescheck" checked>
-    <label for="accessoriescheck">Jewelry/Accessories</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="misc" id="misccheck" checked>
-    <label for="misccheck">Miscellaneous</label> <br> <br>
+    <input type="checkbox" class="location-checkbox" name="oncampus" id="oncampcheck" <?php if (isset($_GET['oncampus'])) echo "checked"; ?>>
+<label for="oncampcheck">On-Campus</label> <br> <br>
+<input type="checkbox" class="location-checkbox" name="offcampus" id="offcampcheck" <?php if (isset($_GET['offcampus'])) echo "checked"; ?>>
+<label for="offcampcheck">Off-Campus</label>
+<br>
+<hr>
+<br>
+<input type="checkbox" class="category-checkbox" name="books" id="bookcheck" <?php if (isset($_GET['books'])) echo "checked"; ?>>
+<label for="bookcheck">Books</label> <br> <br>
+<input type="checkbox" class="category-checkbox" name="furniture" id="furncheck" <?php if (isset($_GET['furniture'])) echo "checked"; ?>>
+<label for="furncheck">Furniture</label> <br> <br>
+<input type="checkbox" class="category-checkbox" name="home" id="homecheck" <?php if (isset($_GET['home'])) echo "checked"; ?>>
+<label for="homecheck">Home</label> <br> <br>
+<input type="checkbox" class="category-checkbox" name="electronics" id="elecheck" <?php if (isset($_GET['electronics'])) echo "checked"; ?>>
+<label for="elecheck">Electronics</label> <br> <br>
+<input type="checkbox" class="category-checkbox" name="clothes" id="clothescheck" <?php if (isset($_GET['clothes'])) echo "checked"; ?>>
+<label for="clothescheck">Clothes</label> <br> <br>
+<input type="checkbox" class="category-checkbox" name="accessories" id="accessoriescheck" <?php if (isset($_GET['accessories'])) echo "checked"; ?>>
+<label for="accessoriescheck">Jewelry/Accessories</label> <br> <br>
+<input type="checkbox" class="category-checkbox" name="misc" id="misccheck" <?php if (isset($_GET['misc'])) echo "checked"; ?>>
+<label for="misccheck">Miscellaneous</label> <br> <br>
     <button type="button" id="select">Select All</button>
     <button type="button" id="deselect">Deselect All</button>
     <button type="submit">Apply Filters</button>
