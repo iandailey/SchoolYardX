@@ -50,7 +50,7 @@ body {
 
 .sidenav {
     float: left;
-    width: 16%;
+    width: 15%;
     position: fixed;
     overflow-x: hidden;
     border: 1px solid black;
