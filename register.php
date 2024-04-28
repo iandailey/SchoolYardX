@@ -43,7 +43,7 @@ if(mysqli_ping($con) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     if($stmt->execute()) {
         header("Location: home.php");
         echo "Congratulations $fname $lname! You are registered with SchoolYard. <br>";
-        echo "Back to Home Page: <a href='home.html'>Home</a>";
+        echo "Back to Home Page: <a href='index.php'>Home</a>";
     } else {
         echo "Error: " . $sql . "<br>" . $con->error;
     }

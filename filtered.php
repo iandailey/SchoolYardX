@@ -39,7 +39,7 @@
 
 <body>
   <header class="topnav">
-    <a href="home.html" id="mainpage">SchoolYard Exchange</a>
+    <a href="index.php" id="mainpage">SchoolYard Exchange</a>
     <input type="text" placeholder="Search the SchoolYard" id="searchbar" />
     <?php
     session_start();
