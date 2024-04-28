@@ -2,20 +2,28 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="UM-layout.css">
+        <link rel="stylesheet" href="UM-layout1.css">
         <title>Login</title>
     </head>
 
     <body>
-        <header class="ribbon">
-            <a>SchoolYard Exchange</a>
-        </header>
+          <header class="topnav">
+    <a href="home.html" id="mainpage">SchoolYard Exchange</a>
+    <input type="text" placeholder="Search the SchoolYard" id="searchbar" />
+    <div class="right-items">
+
+    <a href="favorites.html" id="favlink">Favorites</a>
+    <a href="dashboard.html" id="dashlink">Dashboard</a>
+    </div>
+  </header>
         <main class="center">
-            <h2>Sign Up</h2>
-            <form action="register.php">
+            <h2>Register</h2>
+            <form action="register.php" method="POST">
                 <fieldset>
-                    <label for="name">* Name:</label>
-                    <input type="text" name="name" id="name" required> <br> <br>
+                    <label for="fname">* First Name:</label>
+                    <input type="text" name="fname" id="fname" required> <br> <br>
+                    <label for="lname">*Last Name:</label>
+                    <input type="text" name="lname" id="lname" required> <br> <br>
                     <label for="email">* Email:</label>
                     <input type="email" name="email" id="email" required> <br> <br>
                     <label for="pass1">* Password:</label>
