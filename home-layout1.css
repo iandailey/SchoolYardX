@@ -32,18 +32,23 @@ body {
 
 .sidenav {
     float: left;
-    width: 15%;
+    width: 16%;
     border: 1px solid black;
     background-color: cornflowerblue;
-    height: 100%;
-    font-size: 20pt;
+    height: 80%;
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    padding-left: 10px; /* Added padding to the left */
+    padding-right: 10px; /* Optional padding to the right */
+    box-sizing: border-box; /* Make sure the padding does not affect the total width */
 }
 
-.sidenav input, .sidenav button {
-    font-size: 18pt;
-    padding: 10px;
-    margin: 10px 0; /* Added margin for spacing */
-    width: calc(100% - 20px); /* Adjust width to account for padding */
+.sidenav button {
+    font-size: 12pt; /* Even smaller font size for inputs and buttons */
+    padding: 5px;
+    margin: 5px ;
+    width: calc(100% - 20px);
 }
 
 .sidenav hr {
@@ -60,7 +65,7 @@ body {
 .listing {
     border: 1px solid #ddd; /* Lighter border for a cleaner look */
     background-color: #ffffff; /* White background for the listings */
-    margin: 10px; /* Add some space between the listings */
+    margin: 12px; /* Add some space between the listings */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
     flex-basis: calc(33.33% - 20px); /* Adjust the basis to account for margin */
     padding: 10px; /* Padding inside the listings */

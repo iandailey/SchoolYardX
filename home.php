@@ -113,7 +113,7 @@
     <input type="checkbox" class="category-checkbox" name="clothes" id="clothescheck" checked>
     <label for="clothescheck">Clothes</label> <br> <br>
     <input type="checkbox" class="category-checkbox" name="accessories" id="accessoriescheck" checked>
-    <label for="accessoriescheck">Jewelry/Accessories</label> <br> <br>
+    <label for="accessoriescheck">Jewelry / Accessories</label> <br> <br>
     <input type="checkbox" class="category-checkbox" name="misc" id="misccheck" checked>
     <label for="misccheck">Miscellaneous</label> <br> <br>
     <button type="button" id="select">Select All</button>

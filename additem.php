@@ -31,7 +31,7 @@ $catids = array(
     "Home" => 3,
     "Electronics" => 4,
     "Clothes" => 5,
-    "Jewelry/Accessories" => 6,
+    "Jewelry / Accessories" => 6,
     "Miscellaneous" => 7
 );
 
