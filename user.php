@@ -52,7 +52,7 @@ session_start();
 
         ?>
       <br><br>
-      <button onclick="window.location.href = 'additem.php';">Add a new item!</button>
+      <button onclick="window.location.href = 'createitem.php';">Add a new item!</button>
       <br><br>
       <h4>Edit Posted Items</h4>
       <?php
