@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>SchoolYard Exchange</title>
-  <link rel="stylesheet" href="home-layout1.css">
+  <link rel="stylesheet" href="home-layout.css">
   <!-- JavaScript code for category checkboxes 
    <script>
     document.addEventListener('DOMContentLoaded', function () {
