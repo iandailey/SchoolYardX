@@ -9,10 +9,8 @@
 
 <body>
   <header class="topnav">
-    
     <a href="index.php" id="mainpage">SchoolYard Exchange</a>
     <input type="text" placeholder="Search the SchoolYard" id="searchbar" />
-    
     <div class="right-items">
     <?php
     session_start();

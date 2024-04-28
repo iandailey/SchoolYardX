@@ -5,42 +5,13 @@
   <meta charset="UTF-8" />
   <title>SchoolYard Exchange</title>
   <link rel="stylesheet" href="home-layout.css">
-  <!-- JavaScript code for category checkboxes 
-   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
-
-      categoryCheckboxes.forEach(function(checkbox) {
-        checkbox.addEventListener('change', function () {
-          filterItemsByCategory();
-        });
-      });
-
-      function filterItemsByCategory() {
-        const items = document.querySelectorAll('.listing');
-
-        items.forEach(function(item) {
-          const category = item.dataset.category;
-          const categoryCheckboxes = document.querySelectorAll('.category-checkbox:checked');
-          const selectedCategories = Array.from(categoryCheckboxes).map(checkbox => checkbox.value);
-
-          if (selectedCategories.includes(category)) {
-            item.style.display = '';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      }
-    });
-  </script>
--->
-
 </head>
 
 <body>
   <header class="topnav">
     <a href="index.php" id="mainpage">SchoolYard Exchange</a>
     <input type="text" placeholder="Search the SchoolYard" id="searchbar" />
+    <div class="right-items">
     <?php
     session_start();
 
@@ -62,6 +33,7 @@
 
     <a href="favorites.html" id="favlink">Favorites</a>
     <a href="dashboard.html" id="dashlink">Dashboard</a>
+    </div>
   </header>
 
 
