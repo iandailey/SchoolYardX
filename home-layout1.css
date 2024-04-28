@@ -10,6 +10,11 @@ body {
     padding: 10px;
     text-decoration: none;
     font-size: 24pt;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
     /* To make the navigation bar fixed:
     position: fixed;
     width: 100%;
@@ -17,6 +22,18 @@ body {
     left: 0;
     z-index: 1000; */
 }
+
+.topnav .left-items {
+    display: flex; /* Use flexbox for left items */
+    float: left;
+    
+}
+
+.topnav .right-items {
+    display: flex; /* Use flexbox for right items */
+    float: right;
+}
+
 
 .topnav a {
     color: rgb(255, 196, 0);
@@ -33,9 +50,11 @@ body {
 .sidenav {
     float: left;
     width: 16%;
+    position: fixed;
+    overflow-x: hidden;
     border: 1px solid black;
     background-color: cornflowerblue;
-    height: 80%;
+    height: 85%;
     font-size: 12pt;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -55,6 +74,7 @@ body {
     padding: 5px;
     margin: 5px ;
     width: calc(100% - 20px);
+    overflow: hidden;
 }
 
 .sidenav hr {
@@ -98,6 +118,7 @@ body {
     }
 
     .sidenav, .topnav {
+        position: static;
         width: 100%; /* Full width on smaller screens */
         float: none;
     }
