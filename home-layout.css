@@ -45,6 +45,7 @@ body {
 #searchbar {
     width: 50%;
     padding: 10px;
+    margin-right: 20px;
 }
 
 .sidenav {

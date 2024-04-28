@@ -71,7 +71,7 @@
     
 
     if (isset($_SESSION['Email'])) {
-      echo "<a href='additem.html'><button>Create new Listing</button></a>";
+      echo "<a href='createitem.php'><button>Create new Listing</button></a>";
 
     } else {
       // Show login

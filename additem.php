@@ -56,7 +56,7 @@ foreach($catids as $key => $value) {
 if ($stmt->execute()) {
     echo "New record created successfully";
     echo "<br>";
-    echo "<a href='http://schoolyardx.com/additem.html'>Click Here</a> To add a another item";
+    echo "<a href='http://schoolyardx.com/createitem.php'>Click Here</a> To add a another item";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

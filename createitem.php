@@ -7,15 +7,34 @@
     </head>
 
     <body>
-        <header class="ribbon">
-        
-            <a href="home.php" class="home-link">Home</a>
-            <a href="#" class="active">Create Listing</a>
-            <a href="profile.php">Profile</a>
-            <a href="favorites.php">Favorites</a>
-            <a href="dashboard.php">Dashboard</a>
-            <a href="inbox.php">Inbox</a>
-        </header>
+    <header class="topnav">
+    <a href="home.html" id="mainpage">SchoolYard Exchange</a>
+    <input type="text" placeholder="Search the SchoolYard" id="searchbar" />
+    <div class="right-items">
+    <?php
+    session_start();
+
+    // Check if user is logged in
+    if (isset($_SESSION['Email'])) {
+      $fname = $_SESSION['fname'];
+      echo "<a href='user.php' id='loginlink'>$fname's Account</a>";
+
+    } else {
+      // Show login
+      echo "<a href='login.html' id='loginlink'>Login</a>";
+    }
+
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
+
+    ?>
+
+    <a href="favorites.html" id="favlink">Favorites</a>
+    <a href="dashboard.html" id="dashlink">Dashboard</a>
+    </div>
+  </header>
+
 
         <main class="center">
             <!-- Adjusted heading to match screenshot -->
@@ -44,13 +63,13 @@
                     <!-- Item category selection, adjusted to checkboxes -->
                     <label for="category">Item Category:</label>
                     <div class="category-checkboxes">
-                        <label><input type="radio" name="category" value="Books"> Books</label>
-                        <label><input type="radio" name="category" value="Furniture"> Furniture</label>
-                        <label><input type="radio" name="category" value="Home"> Home</label>
-                        <label><input type="radio" name="category" value="Electronics"> Electronics</label>
-                        <label><input type="radio" name="category" value="Clothes"> Clothes</label>
-                        <label><input type="radio" name="category" value="Jewelry / Accessories"> Jewelry / Accessories</label>
-                        <label><input type="radio" name="category" value="Miscellaneous"> Miscellaneous / Other</label>
+                        <label><input type="checkbox" name="category" value="Books"> Books</label>
+                        <label><input type="checkbox" name="category" value="Furniture"> Furniture</label>
+                        <label><input type="checkbox" name="category" value="Home"> Home</label>
+                        <label><input type="checkbox" name="category" value="Electronics"> Electronics</label>
+                        <label><input type="checkbox" name="category" value="Clothes"> Clothes</label>
+                        <label><input type="checkbox" name="category" value="Jewelry/Accessories"> Jewelry / Accessories</label>
+                        <label><input type="checkbox" name="category" value="Miscellaneous"> Miscellaneous / Other</label>
                     </div>
 
                     <!-- Submit button adjusted to match the "Publish" button in the screenshot -->
