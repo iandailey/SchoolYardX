@@ -44,6 +44,12 @@ body {
     box-sizing: border-box; /* Make sure the padding does not affect the total width */
 }
 
+.sidenav input[type="checkbox"] {
+    font-size: 12pt; /* Even smaller font size for inputs and buttons */
+    padding: 5px;
+    margin: 5px ;
+}
+
 .sidenav button {
     font-size: 12pt; /* Even smaller font size for inputs and buttons */
     padding: 5px;
