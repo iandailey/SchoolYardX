@@ -5,6 +5,29 @@ body {
     margin: 0;
 }
 
+/* Body and page layout with background image */
+body {
+    background-image: url('UYard.png'); /* Background image */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    background-color: aliceblue; /* Used if the image is not found */
+}
+
+/* Aliceblue overlay that covers the full website */
+body::after {
+    content: '';
+    position: fixed; /* Covers the full viewport */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: aliceblue; /* Changed to aliceblue */
+    opacity: 0.7; /* 0.7 transparent */
+    z-index: -1;
+}
+
 .topnav {
     background-color: rgba(8, 83, 148, 255);
     padding: 10px;
@@ -89,12 +112,20 @@ body {
     margin-left: 15%; /* Offset for the sidebar */
 }
 
+table, tbody, tr, td {
+    display: flex;
+}
+
+table {
+    display: table;
+}
+
 .listing {
     border: 1px solid #ddd; /* Lighter border for a cleaner look */
     background-color: #ffffff; /* White background for the listings */
     margin: 12px; /* Add some space between the listings */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    /*flex-basis: calc(33.33% - 20px); /* Adjust the basis to account for margin */
+    flex-basis: calc(33.33% - 20px); /* Adjust the basis to account for margin */
     padding: 10px; /* Padding inside the listings */
     border-radius: 4px; /* Rounded corners for aesthetics */
 }
