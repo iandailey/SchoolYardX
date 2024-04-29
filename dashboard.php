@@ -80,14 +80,47 @@
 
         <!-- item template -->
         <div class="container">
+            <?php
+            include 'dbconnect.php';
+            if (isset($_SESSION['userid'])) {
+                $userid = $_SESSION['userid'];
+            }
+
+            $sql = 'SELECT * from Items where userID = $userid';
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                // Output data of each row  
+                echo '<table>';
+                echo '<tr>';
+                $count = 0;
+                while ($row = $result->fetch_assoc()) {
+                    echo '<td>';
+                    $listid = "listing" . $row['ListingID'];
+                    echo '<div class="listing" id="' . $listid . '">';
+                    // echo '<img class="listimg" src="' . $row["image_url"] . '" /> <br />';
+                    echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
+                    echo '<h3 class="category">' . $row["Category"] . '</h3>';
+                    echo '<p class="delivery">' . $row["DeliveryPreferences"] . '</p>';
+                    echo '<p class="location">' . $row["Location"] . '</p>';
+                    echo '<p class="soldstatus">' . $row["SoldStatus"] . '</p>';
+                    echo '</div>';
+                    echo '</td>';
+
+                    $count++;
+                    if ($count % 3 == 0) {
+                        echo '</tr><tr>';
+                    }
+                }
+                echo '</tr>';
+                echo '</table>';
+            } else {
+                echo "0 results";
+            }
+
+            $conn->close();
+            ?>
 
 
-            <div class="listing" id="listID">
-                <img class="listimg" src="listimg.png" /> <br />
-                <h3 class="price">$Price</h3>
-                <span class="itemName">Item Name</span>
-                <p class="itemDesc">Item Description</p>
-            </div>
         </div>
     </main>
 </body>
