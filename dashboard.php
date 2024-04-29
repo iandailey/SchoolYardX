@@ -87,7 +87,7 @@
                 $userid = $_SESSION['userid'];
 
 
-                $sql = 'SELECT * from Items where userID = $userid';
+                $sql = 'SELECT * from Items where userID = "$userid"';
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     // Output data of each row  
