@@ -79,7 +79,7 @@ body::after {
     border: 1px solid black;
     background-color: cornflowerblue;
     height: 85%;
-    font-size: 12pt;
+    font-size: 15pt;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     padding-left: 10px; /* Added padding to the left */
@@ -88,13 +88,13 @@ body::after {
 }
 
 .sidenav input[type="checkbox"] {
-    font-size: 12pt; /* Even smaller font size for inputs and buttons */
+    font-size: 15pt; /* Even smaller font size for inputs and buttons */
     padding: 5px;
     margin: 5px ;
 }
 
 .sidenav button {
-    font-size: 12pt; /* Even smaller font size for inputs and buttons */
+    font-size: 15pt; /* Even smaller font size for inputs and buttons */
     padding: 5px;
     margin: 5px ;
     width: calc(100% - 20px);
@@ -126,7 +126,6 @@ table {
     margin: 12px; /* Add some space between the listings */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
     /*flex-basis: calc(33.33% - 20px); /* Adjust the basis to account for margin */
-    width: 15%;
     padding: 10px; /* Padding inside the listings */
     border-radius: 4px; /* Rounded corners for aesthetics */
 }
