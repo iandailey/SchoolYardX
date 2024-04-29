@@ -72,6 +72,38 @@
                         <label><input type="radio" name="category" value="Miscellaneous"> Miscellaneous / Other</label>
                     </div>
 
+                    <br><br>
+                    <label for="condition">Select the condition:</label>
+                    <select id="condition" name="condition">
+                      <option value="new">new</option>
+                      <option value="used - like new">used - like new</option>
+                      <option value="used - good">used - good</option>
+                      <option value="used - fair">used - fair</option>
+                    </select><br><br>
+
+                    
+                    <label for="delivery">Select an delivery preference:</label>
+                    <select id="delivery" name="delivery">
+                        <option value="pickup">pickup</option>
+                        <option value="dropoff">dropoff</option>
+                        <option value="shipping">shipping</option>
+                    </select><br><br>
+                
+                    <label for="location">Select a location:</label>
+                    <select id="location" name="location">
+                        <option value="on-campus">on campus</option>
+                        <option value="off-campus">off campus</option>
+                    </select><br><br>
+                
+                    <label for="sold">Select an sold status:</label>
+                    <select id="sold" name="sold">
+                        <option value="available">available</option>
+                        <option value="sold">sold</option>
+                    
+                    </select><br><br>
+
+
+
                     <!-- Submit button adjusted to match the "Publish" button in the screenshot -->
                     <button type="submit" class="publish-button">Publish</button>
                 </fieldset>

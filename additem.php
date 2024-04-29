@@ -37,7 +37,7 @@ $catids = array(
 
 // Setting the variables
 $userid = $_SESSION['userid'];
-$prod_name = $_POST['prod_name'];
+$prod_name = $_POST['item_name'];
 $condition = $_POST['condition'];
 $category = $_POST['category'];
 $categoryid = null;
