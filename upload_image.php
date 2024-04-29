@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -7,7 +7,7 @@ include "dbconnect.php";
 
 $uploadDirectory = "/images/itemimages";
 
-$uploadFile = $_FILES['image'];
+$uploadFile = $_FILES['image_upload'];
 
 $ogfilename = $uploadFile['name'];
 
