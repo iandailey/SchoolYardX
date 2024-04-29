@@ -24,7 +24,8 @@
                 echo "<a href='user.php' id='loginlink'>$fname's Account</a>";
 
             } else {
-                // Show login
+                // force login
+                header('login.html');
                 echo "<a href='login.html' id='loginlink'>Login</a>";
             }
 
