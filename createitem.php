@@ -73,6 +73,15 @@
                     </div>
 
                     <br><br>
+                    <label for="condition">Select the condition:</label>
+                    <select id="condition" name="condition">
+                      <option value="new">new</option>
+                      <option value="used - like new">used - like new</option>
+                      <option value="used - good">used - good</option>
+                      <option value="used - fair">used - fair</option>
+                    </select><br><br>
+
+                    
                     <label for="delivery">Select an delivery preference:</label>
                     <select id="delivery" name="delivery">
                         <option value="pickup">pickup</option>
