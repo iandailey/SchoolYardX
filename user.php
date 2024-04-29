@@ -84,29 +84,13 @@ session_start();
             "<p><strong>Campus Location:</strong> $loc</p>";
 
 
-          ?>
-          <script>
-            // dont show the form
-            var form = document.querySelector('.userform');
-            form.style.display = 'none';
-          </script>
-          <?php
-        } else { // if there is no data returned
-          ?>
-          <script>
-            // show the form
-            var form = document.querySelector('.userform');
-            form.style.display = 'block';
-          </script>
-          <?php
+         
         }
 
         $conn->close();
       }
     }
     ?>
-
-    <!-- show this form only if there is no data stored in the table -->
 
     <div class="userform">
       <form action="user.php" method="post">
