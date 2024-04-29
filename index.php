@@ -32,7 +32,7 @@
     ?>
 
     <a href="favorites.html" id="favlink">Favorites</a>
-    <a href="dashboard.html" id="dashlink">Dashboard</a>
+    <a href="dashboard.php" id="dashlink">Dashboard</a>
     </div>
   </header>
 
