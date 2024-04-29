@@ -54,6 +54,8 @@ foreach($catids as $key => $value) {
 
 
 if ($stmt->execute()) {
+
+    include "upload_image.php";
     echo "New record created successfully";
     echo "<br>";
     echo "<a href='http://schoolyardx.com/createitem.php'>Click Here</a> To add a another item";
