@@ -84,7 +84,7 @@ session_start();
             "<p><strong>Campus Location:</strong> $loc</p>";
 
 
-         
+
         }
 
         $conn->close();
@@ -123,16 +123,17 @@ session_start();
       if (isset($_SESSION['userid'])) {
         $userid = $_SESSION['userid'];
         include 'dbconnect.php';
+        if (isset($_POST['address'])) {
+          $address = $_POST['address'];
+          $phone = $_POST['phone'];
+          $gyear = $_POST['gyear'];
+          $pfp = $_POST['pfp'];
+          $loc = $_POST['loc'];
 
-        $address = $_POST['address'];
-        $phone = $_POST['phone'];
-        $gyear = $_POST['gyear'];
-        $pfp = $_POST['pfp'];
-        $loc = $_POST['loc'];
-
-        $sql = "UPDATE `Users` SET `Address`='$address',`Phone`='$phone',`GraduationYear`='$gyear',`ProfilePictureURL`='$pfp',`CampusLocation`='$loc' WHERE UserID = '$userid';";
-
-        $conn->query($sql);
+          $sql = "UPDATE `Users` SET `Address`='$address',`Phone`='$phone',`GraduationYear`='$gyear',`ProfilePictureURL`='$pfp',`CampusLocation`='$loc' WHERE UserID = '$userid';";
+          $conn->query($sql);
+        }
+        $conn -> close();
       }
       ?>
 
