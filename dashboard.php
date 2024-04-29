@@ -76,7 +76,7 @@
         <button type="button" id="select">select all</button>
         <button type="button" id="deselect">deselect all</button>
     </nav>
-
+ß
     <main>
 
         <!-- item template -->
@@ -87,7 +87,7 @@
                 $userid = $_SESSION['userid'];
 
 
-                $sql = 'SELECT * from Items where userID = "$userid"';
+                $sql = 'SELECT * from Items where UserID = "$userid"';
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     // Output data of each row  
