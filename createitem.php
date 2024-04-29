@@ -93,8 +93,7 @@
                     
                     </select><br><br>
 
-                    <label for="image">Upload Image:</label>
-                    <input type="file" id="image" name="image" required><br><br>
+
 
                     <!-- Submit button adjusted to match the "Publish" button in the screenshot -->
                     <button type="submit" class="publish-button">Publish</button>
