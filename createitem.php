@@ -60,16 +60,16 @@
                     <label for="description">Describe Your Item:</label>
                     <textarea id="description" name="description" placeholder="Describe things about the item, including condition, color, size, age, etc."></textarea>
 
-                    <!-- Item category selection, adjusted to checkboxes -->
+                    <!-- Item category selection, adjusted to radio buttons -->
                     <label for="category">Item Category:</label>
-                    <div class="category-checkboxes">
-                        <label><input type="checkbox" name="category" value="Books"> Books</label>
-                        <label><input type="checkbox" name="category" value="Furniture"> Furniture</label>
-                        <label><input type="checkbox" name="category" value="Home"> Home</label>
-                        <label><input type="checkbox" name="category" value="Electronics"> Electronics</label>
-                        <label><input type="checkbox" name="category" value="Clothes"> Clothes</label>
-                        <label><input type="checkbox" name="category" value="Jewelry/Accessories"> Jewelry / Accessories</label>
-                        <label><input type="checkbox" name="category" value="Miscellaneous"> Miscellaneous / Other</label>
+                    <div class="category-radio-buttons">
+                        <label><input type="radio" name="category" value="Books"> Books</label>
+                        <label><input type="radio" name="category" value="Furniture"> Furniture</label>
+                        <label><input type="radio" name="category" value="Home"> Home</label>
+                        <label><input type="radio" name="category" value="Electronics"> Electronics</label>
+                        <label><input type="radio" name="category" value="Clothes"> Clothes</label>
+                        <label><input type="radio" name="category" value="Jewelry/Accessories"> Jewelry / Accessories</label>
+                        <label><input type="radio" name="category" value="Miscellaneous"> Miscellaneous / Other</label>
                     </div>
 
                     <!-- Submit button adjusted to match the "Publish" button in the screenshot -->
