@@ -138,10 +138,11 @@
           echo '<div class="listing" id="listID">';
           echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
           echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
-          echo '<h3 class="category">' . $row["Category"] . '</h3>';
-          echo '<p class="delivery">' . $row["DeliveryPreferences"] . '</p>';
-          echo '<p class="location">' . $row["Location"] . '</p>';
-          echo '<p class="soldstatus">' . $row["SoldStatus"] . '</p>';
+          echo '<p class="price">$' . $row["price"] . '</p>'; 
+          // echo '<h3 class="category">' . $row["Category"] . '</h3>';
+          // echo '<p class="delivery">' . $row["DeliveryPreferences"] . '</p>';
+          // echo '<p class="location">' . $row["Location"] . '</p>';
+          // echo '<p class="soldstatus">' . $row["SoldStatus"] . '</p>';
           echo '</div>';
           echo '</td>';
 
