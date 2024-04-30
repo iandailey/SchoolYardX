@@ -37,8 +37,8 @@
 
 
         <main class="center">
-            <!-- Adjusted heading to match screenshot -->
-            <h2>Show Listing</h2>
+            
+            
             <?php
 
             if(isset($_GET['ListingID'])) {
@@ -59,6 +59,7 @@
                     $row = $result->fetch_assoc();
                     
                     // Display the details of the listing
+                    echo '<h2>' . $row['prod_name'] . '</h2>';
                     echo '<div class="listing-details">';
                     echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
                     echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
