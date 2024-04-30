@@ -17,7 +17,7 @@
 // Check if user is logged in
             if (isset($_SESSION['Email'])) {
                 $fname = $_SESSION['fname'];
-                echo " <a id='dashtitle'>$fname's Dashboard</a>"
+                echo " <a id='dashtitle'>$fname's Dashboard</a>";
             }
             error_reporting(E_ALL);
             ini_set('display_errors', 1);
