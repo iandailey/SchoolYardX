@@ -138,7 +138,7 @@
                 $userid = $_SESSION['userid'];
                 include 'dbconnect.php';
 
-                $sql = "SELECT * FROM Items WHERE UserID = '$userid' INNER JOIN Images ON Items.imageid = Images.imageid";
+                $sql = "SELECT Items.*, Images.img_dir FROM Items INNER JOIN Images ON Items.imageid = Images.imageid WHERE UserID = '$userid'";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     // Output data of each row  
