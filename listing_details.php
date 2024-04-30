@@ -38,7 +38,7 @@
 
         <main class="center">
             <!-- Adjusted heading to match screenshot -->
-            <h2>Create Listing</h2>
+            <h2>Show Listing</h2>
             <?php
 
             if(isset($_GET['ListingID'])) {
