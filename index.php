@@ -136,7 +136,7 @@
           echo '<td>';
 
           echo '<div class="listing" id="listID">';
-          echo '<a href="listing_details.php?ListingID=' . $row["ListingID"] . '"></a>';
+          echo '<a href="listing_details.php?ListingID=' . $row["ListingID"] . '">';
           echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
           echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
           echo '<p class="price">$' . $row["price"] . '</p>'; 
