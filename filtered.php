@@ -5,24 +5,27 @@
   <meta charset="UTF-8" />
   <title>SchoolYard Exchange</title>
   <link rel="stylesheet" href="home-layout.css">
+  <script src="https://kit.fontawesome.com/34c6296155.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <header class="topnav">
-    <a href="index.php" id="mainpage">SchoolYard Exchange</a>
+<header class="topnav">
+    <a href="index.php" id="mainpage">SchoolYard Xchange</a>
     <input type="text" placeholder="Search the SchoolYard" id="searchbar" />
     <div class="right-items">
+    <a href="dashboard.php" id="dashlink"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    <a href="faq.html" id="faqlink"><i class="fa-solid fa-circle-question"></i> FAQ</a>
     <?php
     session_start();
 
     // Check if user is logged in
     if (isset($_SESSION['Email'])) {
       $fname = $_SESSION['fname'];
-      echo "<a href='user.php' id='loginlink'>$fname's Account</a>";
+      echo "<a href='user.php' id='loginlink'><i class='fa-solid fa-user'></i> Account</a>";
 
     } else {
       // Show login
-      echo "<a href='login.html' id='loginlink'>Login</a>";
+      echo "<a href='login.html' id='loginlink'><i class='fa-solid fa-user'></i> Login</a>";
     }
 
     error_reporting(E_ALL);
@@ -30,24 +33,21 @@
 
 
     ?>
-
-    <a href="favorites.html" id="favlink">Favorites</a>
-    <a href="dashboard.php" id="dashlink">Dashboard</a>
     </div>
   </header>
 
 
   <nav class="sidenav">
-    <!-- create link to take user to adding item if they are logged in --> <!-- test to see if I can push changes-->
+    <!-- create link to take user to adding item if they are logged in -->
     <?php
     
 
     if (isset($_SESSION['Email'])) {
-      echo "<a href='createitem.php'><button>Create new Listing</button></a>";
+      echo "<a href='createitem.php'><button>Create Listing <i class='fa-regular fa-square-plus' id='createicon'></i></button></a>";
 
     } else {
       // Show login
-      echo "<a href='login.html' id='loginlink'><button>Create new Listing</button></a>";
+      echo "<a href='login.html' id='loginlink'><button>Create Listing <i class='fa-regular fa-square-plus' id='createicon'></i></button></a>";
     }
 
     error_reporting(E_ALL);
@@ -67,27 +67,27 @@
     </select>
     <br>
     <hr>
-    <input type="checkbox" class="location-checkbox" name="oncampus" id="oncampcheck" <?php if (isset($_GET['oncampus'])) echo "checked"; ?>>
-<label for="oncampcheck">On-Campus</label> <br> <br>
-<input type="checkbox" class="location-checkbox" name="offcampus" id="offcampcheck" <?php if (isset($_GET['offcampus'])) echo "checked"; ?>>
-<label for="offcampcheck">Off-Campus</label>
-<br>
-<hr>
-<br>
-<input type="checkbox" class="category-checkbox" name="books" id="bookcheck" <?php if (isset($_GET['books'])) echo "checked"; ?>>
-<label for="bookcheck">Books</label> <br> <br>
-<input type="checkbox" class="category-checkbox" name="furniture" id="furncheck" <?php if (isset($_GET['furniture'])) echo "checked"; ?>>
-<label for="furncheck">Furniture</label> <br> <br>
-<input type="checkbox" class="category-checkbox" name="home" id="homecheck" <?php if (isset($_GET['home'])) echo "checked"; ?>>
-<label for="homecheck">Home</label> <br> <br>
-<input type="checkbox" class="category-checkbox" name="electronics" id="elecheck" <?php if (isset($_GET['electronics'])) echo "checked"; ?>>
-<label for="elecheck">Electronics</label> <br> <br>
-<input type="checkbox" class="category-checkbox" name="clothes" id="clothescheck" <?php if (isset($_GET['clothes'])) echo "checked"; ?>>
-<label for="clothescheck">Clothes</label> <br> <br>
-<input type="checkbox" class="category-checkbox" name="accessories" id="accessoriescheck" <?php if (isset($_GET['accessories'])) echo "checked"; ?>>
-<label for="accessoriescheck">Jewelry / Accessories</label> <br> <br>
-<input type="checkbox" class="category-checkbox" name="misc" id="misccheck" <?php if (isset($_GET['misc'])) echo "checked"; ?>>
-<label for="misccheck">Miscellaneous</label> <br> <br>
+    <input type="checkbox" class="location-checkbox" name="oncampus" id="oncampcheck" checked>
+    <label for="oncampcheck">On-Campus</label> <br> <br>
+    <input type="checkbox" class="location-checkbox" name="offcampus" id="offcampcheck" checked>
+    <label for="offcampcheck">Off-Campus</label>
+    <br>
+    <hr>
+    <br>
+    <input type="checkbox" class="category-checkbox" name="books" id="bookcheck" checked>
+    <label for="bookcheck"><i class="fa-solid fa-book"></i> Books</label> <br> <br>
+    <input type="checkbox" class="category-checkbox" name="furniture" id="furncheck" checked>
+    <label for="furncheck"><i class="fa-solid fa-couch"></i> Furniture</label> <br> <br>
+    <input type="checkbox" class="category-checkbox" name="home" id="homecheck" checked>
+    <label for="homecheck"><i class="fa-solid fa-kitchen-set"></i> Home</label> <br> <br>
+    <input type="checkbox" class="category-checkbox" name="electronics" id="elecheck" checked>
+    <label for="elecheck"><i class="fa-solid fa-calculator"></i> Electronics</label> <br> <br>
+    <input type="checkbox" class="category-checkbox" name="clothes" id="clothescheck" checked>
+    <label for="clothescheck"><i class="fa-solid fa-shirt"></i> Clothes</label> <br> <br>
+    <input type="checkbox" class="category-checkbox" name="accessories" id="accessoriescheck" checked>
+    <label for="accessoriescheck"><i class="fa-regular fa-gem"></i> Jewelry / Accessories</label> <br> <br>
+    <input type="checkbox" class="category-checkbox" name="misc" id="misccheck" checked>
+    <label for="misccheck"><i class="fa-solid fa-bars"></i> Miscellaneous</label> <br> <br>
     <button type="button" id="select">Select All</button>
     <button type="button" id="deselect">Deselect All</button>
 
@@ -120,21 +120,7 @@
     <!-- item template -->
     <div class="container">
     <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-$hostname = "schoolyardx.com";
-$username = "Databaseadmin";
-$password = "Ge0rg3Wa\$hingt0n";
-$dbname = "SchoolYard_Exchange_GWU";
-
-// Create connection
-$conn = new mysqli($hostname, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    include 'dbconnect.php';
 
 // Construct the SQL query
 $sql = "SELECT * FROM Items WHERE ";
@@ -186,7 +172,7 @@ if ($result->num_rows > 0) {
         echo '</div>';
         echo '</td>';
         $count++;
-        if ($count % 3 == 0) {
+        if ($count % 4 == 0) {
             echo '</tr><tr>';
         }
     }
@@ -198,34 +184,7 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 ?>
-      <script>
-
-        // Get references to the input field and the container for listings
-        const searchInput = document.getElementById('searchbar');
-        const listings = document.querySelectorAll('.listing');
-
-        // Function to filter listings based on the search input
-        function filterListings() {
-          const searchTerm = searchInput.value.toLowerCase();
-
-          // Loop through each listing
-          listings.forEach((listing) => {
-            const title = listing.querySelector('.name').textContent.toLowerCase();
-
-            if (title.includes(searchTerm)) {
-              // Display matching listings
-              listing.style.display = 'block';
-            } else {
-              // Hide non-matching listings
-              listing.style.display = 'none';
-            }
-          });
-        }
-
-        // Attach an event listener to the search input
-        searchInput.addEventListener('input', filterListings);
-
-      </script>
+      <script src="search.js"></script>
 
     </div>
   </main>
