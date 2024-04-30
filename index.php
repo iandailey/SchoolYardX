@@ -123,7 +123,7 @@
       include 'dbconnect.php';
 
       // SQL query to fetch data from the database
-      $sql = "SELECT * FROM Items";
+      $sql = "SELECT Items.*, Images.img_dir FROM Items INNER JOIN Images ON Items.imageid = Images.imageid";
       $result = $conn->query($sql);
 
       // Check if any rows were returned
@@ -136,7 +136,7 @@
           echo '<td>';
 
           echo '<div class="listing" id="listID">';
-          // echo '<img class="listimg" src="' . $row["image_url"] . '" /> <br />';
+          echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
           echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
           echo '<h3 class="category">' . $row["Category"] . '</h3>';
           echo '<p class="delivery">' . $row["DeliveryPreferences"] . '</p>';
