@@ -5,11 +5,11 @@ ini_set('display_errors', 1);
 
 include "dbconnect.php";
 
-$uploadDirectory = "/images/itemimages";
-
-$uploadFile = $_FILES['img'];
+// $uploadFile = $_FILES['img'];
 
 $ogfilename = $uploadFile['name'];
+
+$uploadDirectory = "/home/gl28dfz15a64/public_html/images/itemimages/";
 
 $hash = md5(uniqid());
 
@@ -19,10 +19,11 @@ $newfilename = $hash . '.' . $fileExtension;
 
 if (move_uploaded_file($uploadFile['tmp_name'], $uploadDirectory . $newfilename)) {
 
-    //adding new name into the database along with the path
-    $sql = "insert into Images (name, img_dir) values (?,?)";
+    $img_dir = $uploadDirectory . $newfilename;
+    // Adding new name into the database along with the path
+    $sql = "INSERT INTO Images (name, img_dir) VALUES (?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $ogfilename, $uploadDirectory . $newfilename);
+    $stmt->bind_param("ss", $ogfilename, $img_dir);
 
     if ($stmt->execute()) {
         echo "Image uploaded!";
@@ -33,6 +34,6 @@ if (move_uploaded_file($uploadFile['tmp_name'], $uploadDirectory . $newfilename)
     echo "Error uploading image";
 }
 
-$conn->close();
+// $conn->close();
 
 ?>

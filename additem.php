@@ -44,6 +44,8 @@ if(isset($_FILES['img'])) {
     echo "No file uploaded"; 
 }
 
+include "upload_image.php";
+
 
 $userid = $_SESSION['userid'];
 // $uploadFile = $_FILES['img'];
@@ -65,41 +67,17 @@ foreach($catids as $key => $value) {
 
 if ($stmt->execute()) {
 
-    // $uploadFile = $_FILES['img'];
 
-    $ogfilename = $uploadFile['name'];
 
-    $uploadDirectory = "/home/gl28dfz15a64/public_html/images/itemimages/";
 
-    $hash = md5(uniqid());
 
-    $fileExtension = pathinfo($ogfilename, PATHINFO_EXTENSION);
 
-    $newfilename = $hash . '.' . $fileExtension;
-
-    if (move_uploaded_file($uploadFile['tmp_name'], $uploadDirectory . $newfilename)) {
-
-        $img_dir = $uploadDirectory . $newfilename;
-        // Adding new name into the database along with the path
-        $sql = "INSERT INTO Images (name, img_dir) VALUES (?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $ogfilename, $img_dir);
-
-        if ($stmt->execute()) {
-
-            // include "upload_image.php";
-            echo "New record created successfully";
-            echo "<br>";
-            echo "<a href='http://schoolyardx.com/createitem.php'>Click Here</a> To add a another item";
-        } else {
-            echo "error inserting: " . $conn->error;
-        }
+        echo "New record created successfully";
+        echo "<br>";
+        echo "<a href='http://schoolyardx.com/createitem.php'>Click Here</a> To add a another item";
     } else {
-        echo "error uploading img";
+        echo "error inserting: " . $conn->error;
     }
-}  else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
 $stmt->close();
 $conn->close();
