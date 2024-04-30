@@ -69,7 +69,7 @@ if ($stmt->execute()) {
 
     $ogfilename = $uploadFile['name'];
 
-    $uploadDirectory = "/home/gl28dfz15a64/public_html/images/itemimages";
+    $uploadDirectory = "/home/gl28dfz15a64/public_html/images/itemimages/";
 
     $hash = md5(uniqid());
 
