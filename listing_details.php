@@ -63,6 +63,12 @@
                     echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
                     echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
                     echo '<p class="price">$' . $row["price"] . '</p>'; 
+                    echo '<p class="description">$' . $row["Description"] . '</p>'; 
+                    echo '<p class="condition">$' . $row["Condition"] . '</p>'; 
+                    echo '<p class="category">$' . $row["Category"] . '</p>';
+                    echo '<p class="deliverypref">$' . $row["DeliveryPreferences"] . '</p>'; 
+                    echo '<p class="location">$' . $row["Location"] . '</p>'; 
+                    echo '<p class="soldstatus">$' . $row["SoldStatus"] . '</p>';  
                     // Display other details as needed
                     echo '</div>';
                 } else {
@@ -74,19 +80,6 @@
             }
 
                 $conn->close();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         
 
