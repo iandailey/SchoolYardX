@@ -48,6 +48,10 @@ body::after {
     
 }
 
+.topnav #mainpage {
+    font-weight: bold;
+}
+
 .topnav .left-items {
     display: flex; /* Use flexbox for left items */
     float: left;
@@ -60,19 +64,24 @@ body::after {
     padding-right: 20px; /* Add padding on the right side */
 }
 
-.topnav .right-items a {
-    margin-right: 20px; /* Adjust the space as needed */
-}
-
-
-
-
 .topnav a {
     color: rgb(255, 196, 0);
     margin: 5px;
     padding: 2px;
     text-decoration: none;
 }
+
+.topnav .right-items a {
+    margin-right: 20px; /* Adjust the space as needed */
+    color: white;
+}
+
+.topnav i {
+    color: white;
+}
+
+
+
 
 #searchbar {
     width: 50%;
@@ -114,6 +123,16 @@ body::after {
 
 .sidenav hr {
     background-color: rgba(254, 217, 103, 255); /* Changed to background-color for better visual */
+    height: 1px;
+}
+
+.sidenav i {
+    color: white;
+    font-size: 18pt;
+}
+
+.sidenav #createicon {
+    color: black;
 }
 
 .container {
