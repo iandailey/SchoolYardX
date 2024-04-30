@@ -38,12 +38,14 @@ body::after {
     display: flex;
     flex-direction: row;
     overflow: hidden;
-    /* To make the navigation bar fixed:
+   /* To make the navigation bar fixed: */
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000; */
+    z-index: 1000; 
+    
+    
 }
 
 .topnav .left-items {
@@ -55,7 +57,14 @@ body::after {
 .topnav .right-items {
     display: flex; /* Use flexbox for right items */
     float: right;
+    padding-right: 20px; /* Add padding on the right side */
 }
+
+.topnav .right-items a {
+    margin-right: 20px; /* Adjust the space as needed */
+}
+
+
 
 
 .topnav a {
@@ -78,13 +87,15 @@ body::after {
     overflow-x: hidden;
     border: 1px solid black;
     background-color: cornflowerblue;
-    height: 85%;
+    height: 100%;
     font-size: 15pt;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     padding-left: 10px; /* Added padding to the left */
     padding-right: 10px; /* Optional padding to the right */
     box-sizing: border-box; /* Make sure the padding does not affect the total width */
+    top: 70px;/* Align the top of the sidebar with the top of the viewport */
+    bottom: 0;
 }
 
 .sidenav input[type="checkbox"] {
@@ -110,52 +121,85 @@ body::after {
     flex-wrap: wrap;
     justify-content: space-around; /* Changed to space-around for even spacing */
     margin-left: 15%; /* Offset for the sidebar */
-}
-
-table, tbody, tr, td {
-    display: flex;
-}
-
-table {
-    display: table;
+    padding-top: 100px;
 }
 
 .listing {
+    width: 300px; /* Fixed width for each listing */
+    height: 300px; /* Fixed height for each listing */
     border: 1px solid #ddd; /* Lighter border for a cleaner look */
     background-color: #ffffff; /* White background for the listings */
     margin: 12px; /* Add some space between the listings */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    /*flex-basis: calc(33.33% - 20px); /* Adjust the basis to account for margin */
     padding: 10px; /* Padding inside the listings */
     border-radius: 4px; /* Rounded corners for aesthetics */
+    display: flex; /* Added to make sure content is properly aligned */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Space out children vertically */
 }
+
+
+.listing .name {
+    margin-bottom: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Styles for the category, delivery, location, and status text */
+.listing .category, 
+.listing .delivery, 
+.listing .location, 
+.listing .soldstatus {
+    align-self: flex-start; /* Align text to the start (left) */
+    font-size: 14px;
+    margin: 0.1px 0; /* Minimal margin between lines */
+}
+
+/* Container for the lower text to group them together at the bottom */
+.listing .details-container {
+    align-self: stretch; /* Stretch to take the full width of the listing */
+    text-align: left; /* Align text to the left */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-end; /* Align content to the end (bottom) */
+    width: 100%; /* Take full width of the parent */
+}
+/* Optional: If you have a specific class for the last element in the listing,
+   you can remove the bottom margin entirely for a snug fit against the container edge. */
+.listing .soldstatus {
+    margin-bottom: 0; /* No space below the last element */
+}
+
 
 .listimg {
     width: 100%; /* Ensure image takes up full width of listing */
-    height: auto; /* Maintain aspect ratio */
+    height: 50%; /* Set height relative to the listing */
     border-bottom: 1px solid #ddd; /* Separator between image and text */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
 }
 
-/* Adjustments for responsiveness */
+
+
 @media only screen and (max-width: 760px) {
     .listing {
-        flex-basis: calc(50% - 20px); 
+        width: 50%; /* Adjust width to take half of the screen width */
+        height: 50%; /* Adjust height to maintain aspect ratio */
+        margin: 10px; /* Adjust margins for smaller screens */
+    }
+
+    .listimg {
+        height: auto; /* Maintain aspect ratio */
     }
 }
 
 @media only screen and (max-width: 480px) {
     .listing {
-        flex-basis: 100%; 
-        margin: 10px 0; /* Stack listings with vertical margin */
-    }
-
-    .sidenav, .topnav {
-        position: static;
         width: 100%; /* Full width on smaller screens */
-        float: none;
+        margin: 10px 0; /* Adjust vertical margin */
     }
 
-    .container {
-        margin-left: 0; /* Reset margin as sidebar is now full width */
+    .listimg {
+        height: 200px; /* Fixed height for better control on small screens */
     }
 }
