@@ -138,7 +138,7 @@
                 $userid = $_SESSION['userid'];
                 include 'dbconnect.php';
 
-                $sql = "SELECT * FROM Items WHERE UserID = '$userid'";
+                $sql = "SELECT * FROM Items WHERE UserID = '$userid' INNER JOIN Images ON Items.imageid = Images.imageid";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     // Output data of each row  
@@ -149,7 +149,7 @@
                         echo '<td>';
                         $listid = "listing" . $row['ListingID'];
                         echo '<div class="listing" id="' . $listid . '">';
-                        // echo '<img class="listimg" src="' . $row["image_url"] . '" /> <br />';
+                        echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
                         echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
                         echo '<h3 class="category">' . $row["Category"] . '</h3>';
                         echo '<p class="delivery">' . $row["DeliveryPreferences"] . '</p>';
