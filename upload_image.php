@@ -9,7 +9,9 @@ include "dbconnect.php";
 
 $ogfilename = $uploadFile['name'];
 
-$uploadDirectory = "/home/gl28dfz15a64/public_html/images/itemimages/";
+$mainPath = "/home/gl28dfz15a64/public_html/";
+
+$uploadDirectory = "/images/itemimages/";
 
 $hash = md5(uniqid());
 
@@ -17,7 +19,7 @@ $fileExtension = pathinfo($ogfilename, PATHINFO_EXTENSION);
 
 $newfilename = $hash . '.' . $fileExtension;
 
-if (move_uploaded_file($uploadFile['tmp_name'], $uploadDirectory . $newfilename)) {
+if (move_uploaded_file($uploadFile['tmp_name'], $mainPath . $uploadDirectory . $newfilename)) {
 
     $img_dir = $uploadDirectory . $newfilename;
     // Adding new name into the database along with the path
@@ -26,6 +28,7 @@ if (move_uploaded_file($uploadFile['tmp_name'], $uploadDirectory . $newfilename)
     $stmt->bind_param("ss", $ogfilename, $img_dir);
 
     if ($stmt->execute()) {
+        $imageid = mysqli_insert_id($conn);
         echo "Image uploaded!";
     } else {
         echo "Error inserting: " . $conn->error;
