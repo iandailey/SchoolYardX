@@ -29,11 +29,11 @@ include "upload_image.php";
 
 // Prepare SQL statement
 $sql = "INSERT INTO Items (UserID, imageid, prod_name, price, Description, `Condition`, Category, CategoryID, DeliveryPreferences, Location, SoldStatus)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 // Prepare and bind parameters
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sisissssss", $userid, $imageid, $prod_name, $price, $description, $condition, $category, $categoryid, $delivery, $location, $sold);
+$stmt->bind_param("sisisssssss", $userid, $imageid, $prod_name, $price, $description, $condition, $category, $categoryid, $delivery, $location, $sold);
 
 //making array for catids for input
 $catids = array(
