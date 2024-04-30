@@ -26,6 +26,7 @@ if (move_uploaded_file($uploadFile['tmp_name'], $uploadDirectory . $newfilename)
     $stmt->bind_param("ss", $ogfilename, $img_dir);
 
     if ($stmt->execute()) {
+        $imageid = mysqli_insert_id($conn);
         echo "Image uploaded!";
     } else {
         echo "Error inserting: " . $conn->error;
