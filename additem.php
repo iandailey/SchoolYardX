@@ -36,8 +36,17 @@ $catids = array(
 );
 
 // Setting the variables
+// Check if 'img' file input field is set in $_FILES
+if(isset($_FILES['img'])) {
+    $uploadFile = $_FILES['img'];
+    echo "Image uploaded";
+} else {
+    echo "No file uploaded"; 
+}
+
+
 $userid = $_SESSION['userid'];
-$uploadFile = $_FILES['img'];
+// $uploadFile = $_FILES['img'];
 $prod_name = $_POST['item_name'];
 $condition = $_POST['condition'];
 $category = $_POST['category'];

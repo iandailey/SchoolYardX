@@ -39,7 +39,7 @@
         <main class="center">
             <!-- Adjusted heading to match screenshot -->
             <h2>Create Listing</h2>
-            <form action="additem.php" method="POST" class="create-listing-form">
+            <form action="additem.php" method="POST" class="create-listing-form" enctype="multipart/form-data">
                 <fieldset>
                     <!-- Image upload section -->
                     <div class="upload-section">
