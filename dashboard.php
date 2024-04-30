@@ -11,14 +11,24 @@
     <header class="topnav">
         <div class="left-items">
             <a href="index.php" id="mainpage">SchoolYard Exchange</a>
-            <a id="dashtitle">USERNAME's Dashboard</a>
-        </div>
-        <div class="right-items">
-
             <?php
             session_start();
 
-            // Check if user is logged in
+// Check if user is logged in
+            if (isset($_SESSION['Email'])) {
+                $fname = $_SESSION['fname'];
+                echo " <a id='dashtitle'>$fname's Dashboard</a>"
+            }
+            error_reporting(E_ALL);
+            ini_set('display_errors', 1);
+
+
+            ?>
+
+        </div>
+        <div class="right-items">
+            <?php
+                // Check if user is logged in
             if (isset($_SESSION['Email'])) {
                 $fname = $_SESSION['fname'];
                 echo "<a href='user.php' id='loginlink'>$fname's Account</a>";
@@ -27,13 +37,12 @@
                 // force login
                 header('login.html');
                 echo "<a href='login.html' id='loginlink'>Login</a>";
-            }
+            }            
 
             error_reporting(E_ALL);
             ini_set('display_errors', 1);
-
-
             ?>
+            
             <a href="favorites.html" id="favlink">Favorites</a>
             <a href="dashboard.php" id="dashlink">Dashboard</a>
         </div>
@@ -82,12 +91,12 @@
         <!-- item template -->
         <div class="container">
             <?php
-            include 'dbconnect.php';
+            
             if (isset($_SESSION['userid'])) {
                 $userid = $_SESSION['userid'];
+                include 'dbconnect.php';
 
-
-                $sql = 'SELECT * from Items where UserID = "$userid"';
+                $sql = "SELECT * FROM Items WHERE UserID = '$userid'";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     // Output data of each row  
