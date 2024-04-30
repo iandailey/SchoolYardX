@@ -9,7 +9,7 @@ include "dbconnect.php";
 
 $ogfilename = $uploadFile['name'];
 
-$uploadDirectory = "/home/gl28dfz15a64/public_html/images/itemimages/";
+$uploadDirectory = "/images/itemimages/";
 
 $hash = md5(uniqid());
 
