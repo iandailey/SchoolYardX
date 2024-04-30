@@ -28,12 +28,12 @@ include "upload_image.php";
 
 
 // Prepare SQL statement
-$sql = "INSERT INTO Items (UserID, imageid, prod_name, `Condition`, Category, CategoryID, DeliveryPreferences, Location, SoldStatus)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO Items (UserID, imageid, prod_name, price, `Condition`, Category, CategoryID, DeliveryPreferences, Location, SoldStatus)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 // Prepare and bind parameters
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sisssssss", $userid, $imageid, $prod_name, $condition, $category, $categoryid, $delivery, $location, $sold);
+$stmt->bind_param("sisissssss", $userid, $imageid, $prod_name, $price, $condition, $category, $categoryid, $delivery, $location, $sold);
 
 //making array for catids for input
 $catids = array(
@@ -53,6 +53,7 @@ $catids = array(
 $userid = $_SESSION['userid'];
 // $uploadFile = $_FILES['img'];
 $prod_name = $_POST['item_name'];
+$price = $_POST["price"];
 $condition = $_POST['condition'];
 $category = $_POST['category'];
 $categoryid = null;
