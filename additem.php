@@ -69,6 +69,8 @@ if ($stmt->execute()) {
 
     $ogfilename = $uploadFile['name'];
 
+    $uploadDirectory = "/images/itemimages";
+
     $hash = md5(uniqid());
 
     $fileExtension = pathinfo($ogfilename, PATHINFO_EXTENSION);
