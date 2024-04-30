@@ -62,7 +62,7 @@
                     echo '<div class="listing-details">';
                     echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
                     echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
-                    echo '<p class="price">$' . $row["price"] . '</p>'; 
+                    echo '<p class="price">Price: $' . $row["price"] . '</p>'; 
                     echo '<p class="description">Description: ' . $row["Description"] . '</p>'; 
                     echo '<p class="condition">Condition: ' . $row["Condition"] . '</p>'; 
                     echo '<p class="category">Category: ' . $row["Category"] . '</p>';
