@@ -7,7 +7,7 @@ include "dbconnect.php";
 
 $uploadDirectory = "/images/itemimages";
 
-$uploadFile = $_FILES['image_upload'];
+$uploadFile = $_FILES['img'];
 
 $ogfilename = $uploadFile['name'];
 

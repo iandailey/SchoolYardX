@@ -44,7 +44,7 @@
                     <!-- Image upload section -->
                     <div class="upload-section">
                         <label for="image_upload">Upload a Picture of Your Item</label>
-                        <input type="file" id="image_upload" name="image_upload">
+                        <input type="file" id="img" name="image_upload" accept="image/*">
                         <div class="drag-drop-area">
                             <p>Choose files to Upload or drag and drop them here</p>
                         </div>
