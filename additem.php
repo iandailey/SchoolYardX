@@ -79,10 +79,11 @@ if ($stmt->execute()) {
 
     if (move_uploaded_file($uploadFile['tmp_name'], $uploadDirectory . $newfilename)) {
 
+        $img_dir = $uploadDirectory . $newfilename;
         // Adding new name into the database along with the path
         $sql = "INSERT INTO Images (name, img_dir) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $ogfilename, $uploadDirectory . $newfilename);
+        $stmt->bind_param("ss", $ogfilename, $img_dir);
 
         if ($stmt->execute()) {
 
