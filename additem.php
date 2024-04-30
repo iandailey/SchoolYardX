@@ -71,9 +71,9 @@ foreach($catids as $key => $value) {
 
 if ($stmt->execute()) {
 
-
-
-
+    //gets the listing ID from the created row
+    // $listingID = mysqli_insert_id($conn);
+    // create_listing_page($listingID);
 
 
         echo "New record created successfully";
@@ -85,4 +85,17 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $conn->close();
+
+// function create_listing_page($listingID) {
+
+//     //creates the file of page
+//     $file = "listing_" . $listingID . ".php";
+
+//     //adds the universal content for the page
+    // $content = "<?php include 'listing_details.php'; 
+
+//     //puts the two together
+//     file_put_contents($file, $content);
+// } -->
+
 ?>
