@@ -62,8 +62,9 @@
     <form action="filtered.php" method=GET>
     <select name="sort" id="sort">
       <option value="recent">Most Recent</option>
-      <option value="top">Highest Rated</option>
       <option value="old">Oldest</option>
+      <option value="high">Price: High to Low</option>
+      <option value="low">Price: Low to High</option>
     </select>
     <br>
     <hr>

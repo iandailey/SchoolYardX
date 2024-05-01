@@ -61,33 +61,34 @@
     <strong><u>Sort By:</u></strong>
     <form action="filtered.php" method=GET>
     <select name="sort" id="sort">
-      <option value="recent">Most Recent</option>
-      <option value="top">Highest Rated</option>
-      <option value="old">Oldest</option>
-    </select>
-    <br>
-    <hr>
-    <input type="checkbox" class="location-checkbox" name="oncampus" id="oncampcheck" checked>
-    <label for="oncampcheck">On-Campus</label> <br> <br>
-    <input type="checkbox" class="location-checkbox" name="offcampus" id="offcampcheck" checked>
-    <label for="offcampcheck">Off-Campus</label>
-    <br>
-    <hr>
-    <br>
-    <input type="checkbox" class="category-checkbox" name="1" id="bookcheck" checked>
-    <label for="bookcheck"><i class="fa-solid fa-book"></i> Books</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="2" id="furncheck" checked>
-    <label for="furncheck"><i class="fa-solid fa-couch"></i> Furniture</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="3" id="homecheck" checked>
-    <label for="homecheck"><i class="fa-solid fa-kitchen-set"></i> Home</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="4" id="elecheck" checked>
-    <label for="elecheck"><i class="fa-solid fa-calculator"></i> Electronics</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="5" id="clothescheck" checked>
-    <label for="clothescheck"><i class="fa-solid fa-shirt"></i> Clothes</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="6" id="accessoriescheck" checked>
-    <label for="accessoriescheck"><i class="fa-regular fa-gem"></i> Jewelry / Accessories</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="7" id="misccheck" checked>
-    <label for="misccheck"><i class="fa-solid fa-bars"></i> Miscellaneous</label> <br> <br>
+    <option value="recent" <?php echo isset($_GET['sort']) && $_GET['sort'] === 'recent' ? 'selected' : ''; ?>>Most Recent</option>
+    <option value="old" <?php echo isset($_GET['sort']) && $_GET['sort'] === 'old' ? 'selected' : ''; ?>>Oldest</option>
+    <option value="high" <?php echo isset($_GET['sort']) && $_GET['sort'] === 'high' ? 'selected' : ''; ?>>Price: High to Low</option>
+    <option value="low" <?php echo isset($_GET['sort']) && $_GET['sort'] === 'low' ? 'selected' : ''; ?>>Price: Low to High</option>
+</select>
+<br>
+<hr>
+<input type="checkbox" class="location-checkbox" name="oncampus" id="oncampcheck" <?php echo isset($_GET['oncampus']) ? 'checked' : ''; ?>>
+<label for="oncampcheck">On-Campus</label> <br> <br>
+<input type="checkbox" class="location-checkbox" name="offcampus" id="offcampcheck" <?php echo isset($_GET['offcampus']) ? 'checked' : ''; ?>>
+<label for="offcampcheck">Off-Campus</label>
+<br>
+<hr>
+<br>
+<input type="checkbox" class="category-checkbox" name="1" id="bookcheck" <?php echo isset($_GET['1']) ? 'checked' : ''; ?>>
+<label for="bookcheck"><i class="fa-solid fa-book"></i> Books</label> <br> <br>
+<input type="checkbox" class="category-checkbox" name="2" id="furncheck" <?php echo isset($_GET['2']) ? 'checked' : ''; ?>>
+<label for="furncheck"><i class="fa-solid fa-couch"></i> Furniture</label> <br> <br>
+<input type="checkbox" class="category-checkbox" name="3" id="homecheck" <?php echo isset($_GET['3']) ? 'checked' : ''; ?>>
+<label for="homecheck"><i class="fa-solid fa-kitchen-set"></i> Home</label> <br> <br>
+<input type="checkbox" class="category-checkbox" name="4" id="elecheck" <?php echo isset($_GET['4']) ? 'checked' : ''; ?>>
+<label for="elecheck"><i class="fa-solid fa-calculator"></i> Electronics</label> <br> <br>
+<input type="checkbox" class="category-checkbox" name="5" id="clothescheck" <?php echo isset($_GET['5']) ? 'checked' : ''; ?>>
+<label for="clothescheck"><i class="fa-solid fa-shirt"></i> Clothes</label> <br> <br>
+<input type="checkbox" class="category-checkbox" name="6" id="accessoriescheck" <?php echo isset($_GET['6']) ? 'checked' : ''; ?>>
+<label for="accessoriescheck"><i class="fa-regular fa-gem"></i> Jewelry / Accessories</label> <br> <br>
+<input type="checkbox" class="category-checkbox" name="7" id="misccheck" <?php echo isset($_GET['7']) ? 'checked' : ''; ?>>
+<label for="misccheck"><i class="fa-solid fa-bars"></i> Miscellaneous</label> <br> <br>
     <button type="button" id="select">Select All</button>
     <button type="button" id="deselect">Deselect All</button>
 
@@ -171,6 +172,23 @@ if (isset($_GET['oncampus']) && isset($_GET['offcampus'])) {
 if (!empty($_GET['search'])) {
   $searchTerm = $_GET['search'];
   $sql .= " AND prod_name LIKE '%$searchTerm%'"; // Match product name containing the search term
+}
+
+// Add sorting logic based on selected option
+$sortOption = $_GET['sort'] ?? 'recent'; // Default to sorting by most recent if no option is selected
+switch ($sortOption) {
+    case 'recent':
+        $sql .= "ORDER BY Timestamp DESC"; // Sort by most recent
+        break;
+    case 'old':
+        $sql .= "ORDER BY Timestamp ASC"; // Sort by oldest
+        break;
+    case 'high':
+        $sql .= "ORDER BY Price DESC"; // Sort by price: high to low
+        break;
+    case 'low':
+        $sql .= "ORDER BY Price ASC"; // Sort by price: low to high
+        break;
 }
 
 // Execute the SQL query
