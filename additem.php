@@ -37,13 +37,13 @@ $stmt->bind_param("sisisssssss", $userid, $imageid, $prod_name, $price, $descrip
 
 //making array for catids for input
 $catids = array(
-    "Books" => 1,
-    "Furniture" => 2,
-    "Home" => 3,
-    "Electronics" => 4,
-    "Clothes" => 5,
-    "Jewelry / Accessories" => 6,
-    "Miscellaneous" => 7
+    "books" => 1,
+    "furniture" => 2,
+    "home" => 3,
+    "electronics" => 4,
+    "clothes" => 5,
+    "accessories" => 6,
+    "misc" => 7
 );
 
 // Setting the variables
@@ -60,7 +60,7 @@ $category = $_POST['category'];
 $categoryid = null;
 $delivery = $_POST['delivery'];
 $location = $_POST['location'];
-$sold = $_POST['sold'];
+$sold = "available";
 
 foreach($catids as $key => $value) {
     if($category == $key) {
