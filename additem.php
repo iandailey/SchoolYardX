@@ -69,24 +69,16 @@ foreach($catids as $key => $value) {
     }
 }
 
-
 if ($stmt->execute()) {
-
-    //gets the listing ID from the created row
-    // $listingID = mysqli_insert_id($conn);
-    // create_listing_page($listingID);
-
-
-        echo "New record created successfully";
-        echo "<br>";
-        echo "<a href='http://schoolyardx.com/createitem.php'>Click Here</a> To add a another item";
-    } else {
-        echo "error inserting: " . $conn->error;
-    }
+    // Redirect to confirmation page with success status and item name
+    header("Location: confirmation.php?status=success&item=" . urlencode($prod_name));
+    exit();
+} else {
+    echo "Error inserting: " . $conn->error;
+}
 
 $stmt->close();
 $conn->close();
-
 // function create_listing_page($listingID) {
 
 //     //creates the file of page

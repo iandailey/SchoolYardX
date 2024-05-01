@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="create-listing.css">
+        <link rel="stylesheet" href="listing_details.css">
         <title>Create Listing</title>
     </head>
 
@@ -62,13 +62,13 @@
                     echo '<h2>' . $row['prod_name'] . '</h2>';
                     echo '<div class="listing-details">';
                     echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
-                    echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
+                    
                     echo '<p class="price">Price: $' . $row["price"] . '</p>'; 
                     echo '<p class="description">Description: ' . $row["Description"] . '</p>'; 
                     echo '<p class="condition">Condition: ' . $row["Condition"] . '</p>'; 
                     echo '<p class="category">Category: ' . $row["Category"] . '</p>';
                     echo '<p class="deliverypref">Delivery Preference: ' . $row["DeliveryPreferences"] . '</p>'; 
-                    echo '<p class="location">Lication: ' . $row["Location"] . '</p>'; 
+                    echo '<p class="location">Location: ' . $row["Location"] . '</p>'; 
                     echo '<p class="soldstatus">Status: ' . $row["SoldStatus"] . '</p>';  
                     // Display other details as needed
                     echo '</div>';
