@@ -5,26 +5,26 @@ body {
     margin: 0;
 }
 
-/* Body and page layout with background image */
+
 body {
     background-image: url('UYard.png'); /* Background image */
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     position: relative;
-    background-color: aliceblue; /* Used if the image is not found */
+    background-color: aliceblue; 
 }
 
-/* Aliceblue overlay that covers the full website */
+
 body::after {
     content: '';
-    position: fixed; /* Covers the full viewport */
+    position: fixed; 
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: aliceblue; /* Changed to aliceblue */
-    opacity: 0.7; /* 0.7 transparent */
+    background-color: aliceblue; 
+    opacity: 0.7; 
     z-index: -1;
 }
 
@@ -53,7 +53,7 @@ body::after {
 }
 
 .topnav .left-items {
-    display: flex; /* Use flexbox for left items */
+    display: flex; 
     float: left;
     
 }
@@ -100,21 +100,21 @@ body::after {
     font-size: 15pt;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    padding-left: 10px; /* Added padding to the left */
-    padding-right: 10px; /* Optional padding to the right */
-    box-sizing: border-box; /* Make sure the padding does not affect the total width */
-    top: 70px;/* Align the top of the sidebar with the top of the viewport */
+    padding-left: 10px; 
+    padding-right: 10px; 
+    box-sizing: border-box; 
+    top: 70px;
     bottom: 0;
 }
 
 .sidenav input[type="checkbox"] {
-    font-size: 15pt; /* Even smaller font size for inputs and buttons */
+    font-size: 15pt; 
     padding: 5px;
     margin: 5px ;
 }
 
 .sidenav button {
-    font-size: 15pt; /* Even smaller font size for inputs and buttons */
+    font-size: 15pt; 
     padding: 5px;
     margin: 5px ;
     width: calc(100% - 20px);
@@ -122,7 +122,7 @@ body::after {
 }
 
 .sidenav hr {
-    background-color: rgba(254, 217, 103, 255); /* Changed to background-color for better visual */
+    background-color: rgba(254, 217, 103, 255); 
     height: 1px;
 }
 
@@ -138,23 +138,23 @@ body::after {
 .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; /* Changed to space-around for even spacing */
-    margin-left: 15%; /* Offset for the sidebar */
+    justify-content: space-around; 
+    margin-left: 15%; 
     padding-top: 100px;
 }
 
 .listing {
-    width: 300px; /* Fixed width for each listing */
-    height: 300px; /* Fixed height for each listing */
-    border: 1px solid #ddd; /* Lighter border for a cleaner look */
-    background-color: #ffffff; /* White background for the listings */
-    margin: 12px; /* Add some space between the listings */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    padding: 10px; /* Padding inside the listings */
-    border-radius: 4px; /* Rounded corners for aesthetics */
-    display: flex; /* Added to make sure content is properly aligned */
-    flex-direction: column; /* Stack children vertically */
-    justify-content: space-between; /* Space out children vertically */
+    width: 300px; 
+    height: 300px; 
+    border: 1px solid #ddd; 
+    background-color: #ffffff; 
+    margin: 12px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    padding: 10px; 
+    border-radius: 4px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
 }
 
 
@@ -170,55 +170,61 @@ body::after {
 .listing .delivery, 
 .listing .location, 
 .listing .soldstatus {
-    align-self: flex-start; /* Align text to the start (left) */
+    align-self: flex-start; 
     font-size: 14px;
-    margin: 0.1px 0; /* Minimal margin between lines */
+    margin: 0.1px 0; 
 }
 
-/* Container for the lower text to group them together at the bottom */
+
 .listing .details-container {
-    align-self: stretch; /* Stretch to take the full width of the listing */
-    text-align: left; /* Align text to the left */
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Stack children vertically */
-    justify-content: flex-end; /* Align content to the end (bottom) */
-    width: 100%; /* Take full width of the parent */
+    align-self: stretch; 
+    text-align: left; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-end; 
+    width: 100%; 
 }
-/* Optional: If you have a specific class for the last element in the listing,
-   you can remove the bottom margin entirely for a snug fit against the container edge. */
+
 .listing .soldstatus {
-    margin-bottom: 0; /* No space below the last element */
+    margin-bottom: 0; 
 }
 
 
 .listimg {
-    width: 100%; /* Ensure image takes up full width of listing */
-    height: 50%; /* Set height relative to the listing */
-    border-bottom: 1px solid #ddd; /* Separator between image and text */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
+    width: 100%; 
+    height: 50%; 
+    border-bottom: 1px solid #ddd; 
+    object-fit: cover; 
 }
 
 
 
 @media only screen and (max-width: 760px) {
     .listing {
-        width: 50%; /* Adjust width to take half of the screen width */
-        height: 50%; /* Adjust height to maintain aspect ratio */
-        margin: 10px; /* Adjust margins for smaller screens */
+        width: 50%; 
+        height: 50%; 
+        margin: 10px; 
     }
 
     .listimg {
-        height: auto; /* Maintain aspect ratio */
+        height: auto; 
     }
 }
 
 @media only screen and (max-width: 480px) {
     .listing {
-        width: 100%; /* Full width on smaller screens */
-        margin: 10px 0; /* Adjust vertical margin */
+        width: 100%; 
+        margin: 10px 0; 
     }
 
     .listimg {
-        height: 200px; /* Fixed height for better control on small screens */
+        height: 200px; 
     }
+}
+
+.link-button {
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer; 
+    
 }

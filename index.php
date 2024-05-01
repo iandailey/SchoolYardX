@@ -151,7 +151,7 @@ form.addEventListener('submit', function(event) {
           echo '<td>';
 
           echo '<div class="listing" id="' . $row["ListingID"] . '">';
-          echo '<a href="listing_details.php?ListingID=' . $row["ListingID"] . '">';
+          echo '<a href="listing_details.php?ListingID=' . $row["ListingID"] . '"class="link-button">';
           echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
           echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
           echo '<p class="price">$' . $row["price"] . '</p>'; 
