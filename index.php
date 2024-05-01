@@ -12,6 +12,7 @@
   <header class="topnav">
     <a href="index.php" id="mainpage">SchoolYard Xchange</a>
     <input type="text" placeholder="Search the SchoolYard" id="searchbar" />
+    <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
     <div class="right-items">
     <a href="dashboard.php" id="dashlink"><i class="fa-solid fa-gauge"></i> Dashboard</a>
     <a href="faq.html" id="faqlink"><i class="fa-solid fa-circle-question"></i> FAQ</a>
@@ -59,7 +60,7 @@
     <br>
     <hr>
     <strong><u>Sort By:</u></strong>
-    <form action="filtered.php" method=GET>
+    <form action="filtered.php" method=GET id="filterForm">
     <select name="sort" id="sort">
       <option value="recent">Most Recent</option>
       <option value="old">Oldest</option>
@@ -130,6 +131,15 @@ form.addEventListener('submit', function(event) {
 
     <button type="submit">Apply Filters</button>
     </form>
+
+    <script>
+document.getElementById('searchButton').addEventListener('click', function() {
+    // Submit the form when the search button is clicked
+    document.getElementById('filterForm').submit();
+});
+</script>
+
+
   </nav>
 
   <main>
