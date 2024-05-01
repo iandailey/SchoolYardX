@@ -139,7 +139,7 @@ form.addEventListener('submit', function(event) {
       include 'dbconnect.php';
 
       // SQL query to fetch data from the database
-      $sql = "SELECT Items.*, Images.img_dir FROM Items INNER JOIN Images ON Items.imageid = Images.imageid";
+      $sql = "SELECT Items.*, Images.img_dir FROM Items INNER JOIN Images ON Items.imageid = Images.imageid ORDER BY Timestamp DESC";
       $result = $conn->query($sql);
 
       // Check if any rows were returned
