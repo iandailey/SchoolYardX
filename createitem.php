@@ -72,13 +72,13 @@
                     <!-- Item category selection, adjusted to radio buttons -->
                     <label for="category">Item Category:</label>
                     <div class="category-radio-buttons">
-                        <label><input type="radio" name="category" value="Books"> Books</label>
-                        <label><input type="radio" name="category" value="Furniture"> Furniture</label>
-                        <label><input type="radio" name="category" value="Home"> Home</label>
-                        <label><input type="radio" name="category" value="Electronics"> Electronics</label>
-                        <label><input type="radio" name="category" value="Clothes"> Clothes</label>
-                        <label><input type="radio" name="category" value="Jewelry/Accessories"> Jewelry / Accessories</label>
-                        <label><input type="radio" name="category" value="Miscellaneous"> Miscellaneous / Other</label>
+                        <label><input type="radio" name="category" value="books"> Books</label>
+                        <label><input type="radio" name="category" value="furniture"> Furniture</label>
+                        <label><input type="radio" name="category" value="home"> Home</label>
+                        <label><input type="radio" name="category" value="electronics"> Electronics</label>
+                        <label><input type="radio" name="category" value="clothes"> Clothes</label>
+                        <label><input type="radio" name="category" value="accessories"> Jewelry / Accessories</label>
+                        <label><input type="radio" name="category" value="misc"> Miscellaneous / Other</label>
                     </div>
 
                     <br><br>
