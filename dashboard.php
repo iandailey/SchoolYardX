@@ -149,13 +149,14 @@
                         echo '<td>';
                         $listid = "listing" . $row['ListingID'];
                         echo '<div class="listing" id="' . $listid . '">';
+                        echo '<a href="listing_details.php?ListingID=' . $row["ListingID"] . '">';
                         echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
                         echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
                         echo '<h3 class="category">' . $row["Category"] . '</h3>';
                         echo '<p class="delivery">' . $row["DeliveryPreferences"] . '</p>';
                         echo '<p class="location">' . $row["Location"] . '</p>';
                         echo '<p class="soldstatus">' . $row["SoldStatus"] . '</p>';
-                        echo '</div>';
+                        echo '</a></div>';
                         echo '</td>';
 
                         $count++;
