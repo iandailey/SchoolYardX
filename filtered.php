@@ -11,7 +11,8 @@
 <body>
 <header class="topnav">
     <a href="index.php" id="mainpage">SchoolYard Xchange</a>
-    <input type="text" placeholder="Search the SchoolYard" id="searchbar" />
+    <input type="text" placeholder="Search the SchoolYard" id="searchbar" name="search" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" />
+
     <div class="right-items">
     <a href="dashboard.php" id="dashlink"><i class="fa-solid fa-gauge"></i> Dashboard</a>
     <a href="faq.html" id="faqlink"><i class="fa-solid fa-circle-question"></i> FAQ</a>
