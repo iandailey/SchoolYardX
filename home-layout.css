@@ -86,8 +86,17 @@ body::after {
 #searchbar {
     width: 50%;
     padding: 10px;
-    margin-right: 20px;
+    margin-right: 5px;
 }
+
+#searchButton {
+    margin-right: 10px;
+}
+
+#searchButton i {
+    color: black;
+}
+
 
 .sidenav {
     float: left;

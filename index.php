@@ -134,6 +134,8 @@ form.addEventListener('submit', function(event) {
 
     <script>
 document.getElementById('searchButton').addEventListener('click', function() {
+  // Set the value of the hidden input field to the search input value
+  document.getElementById('searchInput').value = document.getElementById('searchbar').value;
     // Submit the form when the search button is clicked
     document.getElementById('filterForm').submit();
 });

@@ -60,7 +60,7 @@
     <br>
     <hr>
     <strong><u>Sort By:</u></strong>
-    <form action="filtered.php" method=GET>
+    <form action="filtered.php" method=GET id="filterForm">
     <select name="sort" id="sort">
     <option value="recent" <?php echo isset($_GET['sort']) && $_GET['sort'] === 'recent' ? 'selected' : ''; ?>>Most Recent</option>
     <option value="old" <?php echo isset($_GET['sort']) && $_GET['sort'] === 'old' ? 'selected' : ''; ?>>Oldest</option>
@@ -134,6 +134,8 @@ form.addEventListener('submit', function(event) {
 
     <script>
 document.getElementById('searchButton').addEventListener('click', function() {
+  // Set the value of the hidden input field to the search input value
+  document.getElementById('searchInput').value = document.getElementById('searchbar').value;
     // Submit the form when the search button is clicked
     document.getElementById('filterForm').submit();
 });
