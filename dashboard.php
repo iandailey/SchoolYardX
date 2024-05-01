@@ -2,64 +2,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>SchoolYard Exchange</title>
-    <link rel="stylesheet" href="home-layout.css">
+  <meta charset="UTF-8" />
+  <title>SchoolYard Exchange</title>
+  <link rel="stylesheet" href="dashboard1.css">
+  <script src="https://kit.fontawesome.com/34c6296155.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header class="topnav">
-        <div class="left-items">
-            <a href="index.php" id="mainpage">SchoolYard Exchange</a>
-            <?php
-            session_start();
+  <header class="topnav">
+    <a href="index.php" id="mainpage">SchoolYard Xchange</a>
+    <input type="text" placeholder="Search the SchoolYard" id="searchbar" />
+    <div class="right-items">
+    <a href="dashboard.php" id="dashlink"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    <a href="faq.php" id="faqlink"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+    <?php
+    session_start();
 
-// Check if user is logged in
-            if (isset($_SESSION['Email'])) {
-                $fname = $_SESSION['fname'];
-                echo " <a id='dashtitle'>$fname's Dashboard</a>";
-            }
-            error_reporting(E_ALL);
-            ini_set('display_errors', 1);
+    // Check if user is logged in
+    if (isset($_SESSION['Email'])) {
+      $fname = $_SESSION['fname'];
+      echo "<a href='user.php' id='loginlink'><i class='fa-solid fa-user'></i> Account</a>";
 
+    } else {
+      // Show login
+      echo "<a href='login.html' id='loginlink'><i class='fa-solid fa-user'></i> Login</a>";
+    }
 
-            ?>
-
-        </div>
-        <div class="right-items">
-            <?php
-                // Check if user is logged in
-            if (isset($_SESSION['Email'])) {
-                $fname = $_SESSION['fname'];
-                echo "<a href='user.php' id='loginlink'>$fname's Account</a>";
-
-            } else {
-                // force login
-                header('login.html');
-                echo "<a href='login.html' id='loginlink'>Login</a>";
-            }            
-
-            error_reporting(E_ALL);
-            ini_set('display_errors', 1);
-            ?>
-            
-            <a href="favorites.html" id="favlink">Favorites</a>
-            <a href="dashboard.php" id="dashlink">Dashboard</a>
-        </div>
-    </header>
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
 
 
-    <nav class="sidenav">
-    <!-- create link to take user to adding item if they are logged in --> <!-- test to see if I can push changes-->
+    ?>
+    </div>
+  </header>
+
+
+  <nav class="sidenav">
+    <!-- create link to take user to adding item if they are logged in -->
     <?php
     
 
     if (isset($_SESSION['Email'])) {
-      echo "<a href='createitem.php'><button>Create new Listing</button></a>";
+      echo "<a href='createitem.php'><button>Create Listing <i class='fa-regular fa-square-plus' id='createicon'></i></button></a>";
 
     } else {
       // Show login
-      echo "<a href='login.html' id='loginlink'><button>Create new Listing</button></a>";
+      echo "<a href='login.html' id='loginlink'><button>Create Listing <i class='fa-regular fa-square-plus' id='createicon'></i></button></a>";
     }
 
     error_reporting(E_ALL);
@@ -87,19 +75,19 @@
     <hr>
     <br>
     <input type="checkbox" class="category-checkbox" name="books" id="bookcheck" checked>
-    <label for="bookcheck">Books</label> <br> <br>
+    <label for="bookcheck"><i class="fa-solid fa-book"></i> Books</label> <br> <br>
     <input type="checkbox" class="category-checkbox" name="furniture" id="furncheck" checked>
-    <label for="furncheck">Furniture</label> <br> <br>
+    <label for="furncheck"><i class="fa-solid fa-couch"></i> Furniture</label> <br> <br>
     <input type="checkbox" class="category-checkbox" name="home" id="homecheck" checked>
-    <label for="homecheck">Home</label> <br> <br>
+    <label for="homecheck"><i class="fa-solid fa-kitchen-set"></i> Home</label> <br> <br>
     <input type="checkbox" class="category-checkbox" name="electronics" id="elecheck" checked>
-    <label for="elecheck">Electronics</label> <br> <br>
+    <label for="elecheck"><i class="fa-solid fa-calculator"></i> Electronics</label> <br> <br>
     <input type="checkbox" class="category-checkbox" name="clothes" id="clothescheck" checked>
-    <label for="clothescheck">Clothes</label> <br> <br>
+    <label for="clothescheck"><i class="fa-solid fa-shirt"></i> Clothes</label> <br> <br>
     <input type="checkbox" class="category-checkbox" name="accessories" id="accessoriescheck" checked>
-    <label for="accessoriescheck">Jewelry / Accessories</label> <br> <br>
+    <label for="accessoriescheck"><i class="fa-regular fa-gem"></i> Jewelry / Accessories</label> <br> <br>
     <input type="checkbox" class="category-checkbox" name="misc" id="misccheck" checked>
-    <label for="misccheck">Miscellaneous</label> <br> <br>
+    <label for="misccheck"><i class="fa-solid fa-bars"></i> Miscellaneous</label> <br> <br>
     <button type="button" id="select">Select All</button>
     <button type="button" id="deselect">Deselect All</button>
 
@@ -127,7 +115,6 @@
     <button type="submit">Apply Filters</button>
     </form>
   </nav>
-
     <main>
 
         <!-- item template -->
@@ -135,46 +122,47 @@
             <?php
             
             if (isset($_SESSION['userid'])) {
-              $userid = $_SESSION['userid'];
-              include 'dbconnect.php';
-        
-              $sql = "SELECT * FROM Items where UserID = '$userid'";
-        
-              $result = $conn->query($sql);
-        
-              if ($result->num_rows > 0) {
-                echo "<table>";
-                echo "<thead>
-                  <tr>
-                    <th>Item</th>
-                    <th>Category</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>";
-                while ($row = $result->fetch_assoc()) {
-                  echo "<tr>";
-                  echo "<td>" . $row['prod_name'] . "</td>";
-                  echo "<td>" . $row['Category'] . "</td>";
-                  echo "<td>" . $row['SoldStatus'] . "</td>";
-                  echo "<td><button class='delete-btn' data-id='{" . $row['ListingID'] . "}'>Delete</button></td>";
-                  echo "</tr>";
+                $userid = $_SESSION['userid'];
+                include 'dbconnect.php';
+
+                $sql = "SELECT Items.*, Images.img_dir FROM Items INNER JOIN Images ON Items.imageid = Images.imageid WHERE UserID = '$userid'";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    // Output data of each row  
+                    echo '<table>';
+                    echo '<tr>';
+                    $count = 0;
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<td>';
+                        $listid = "listing" . $row['ListingID'];
+                        echo '<div class="listing" id="' . $listid . '">';
+                        echo '<a href="listing_details.php?ListingID=' . $row["ListingID"] . '">';
+                        echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
+                        echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
+                        echo '<h3 class="category">' . $row["Category"] . '</h3>';
+                        echo '<p class="delivery">' . $row["DeliveryPreferences"] . '</p>';
+                        echo '<p class="location">' . $row["Location"] . '</p>';
+                        echo '<p class="soldstatus">' . $row["SoldStatus"] . '</p>';
+                        echo '</a></div>';
+                        echo '</td>';
+
+                        $count++;
+                        if ($count % 3 == 0) {
+                            echo '</tr><tr>';
+                        }
+                    }
+                    echo '</tr>';
+                    echo '</table>';
+                } else {
+                    echo "0 results";
                 }
-                echo "</tbody>";
-                echo "</table>";
-              } else {
-                echo "You have not made any posts yet.";
-              }
-        
-              $conn->close();
+
+                $conn->close();
+            }else{
+                header('login.html');
             }
-        
-        
-        
-        
             ?>
-            <script src="userjs.js"></script>
-        
+
 
         </div>
     </main>
