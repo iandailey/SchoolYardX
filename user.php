@@ -25,6 +25,7 @@
 
     <main>
         <?php
+        error_reporting(E_ALL & ~E_DEPRECATED);
         if (isset($_SESSION['Email'])) {
             $fname = $_SESSION['fname'];
             echo "<h2> Welcome $fname! </h2>";
