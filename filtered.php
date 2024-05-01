@@ -112,6 +112,21 @@
     });
 </script>
 
+<!-- Function to Pull Contents of Searchbar into the form -->
+<input type="hidden" id="searchInput" name="search" value="">
+
+<script>
+// Get references to the form and search input
+const form = document.querySelector('form');
+const searchInput = document.getElementById('searchbar');
+
+// Add an event listener to the form submission
+form.addEventListener('submit', function(event) {
+    // Set the value of the hidden input field to the search input value
+    document.getElementById('searchInput').value = searchInput.value;
+});
+</script>
+
     <button type="submit">Apply Filters</button>
     </form>
   </nav>
@@ -123,7 +138,7 @@
     include 'dbconnect.php';
 
 // Construct the SQL query
-$sql = "SELECT * FROM Items WHERE ";
+$sql = "SELECT Items.*, Images.img_dir FROM Items INNER JOIN Images ON Items.imageid = Images.imageid WHERE ";
 
 // Array to store selected categories
 $selectedCategories = [];
@@ -152,42 +167,52 @@ if (isset($_GET['oncampus']) && isset($_GET['offcampus'])) {
     $sql .= " AND Location = 'Off-Campus'";
 }
 
+// Add search term filter if provided
+if (!empty($_GET['search'])) {
+  $searchTerm = $_GET['search'];
+  $sql .= " AND prod_name LIKE '%$searchTerm%'"; // Match product name containing the search term
+}
+
 // Execute the SQL query
 $result = $conn->query($sql);
 
 // Check if any rows were returned
 if ($result->num_rows > 0) {
-    // Output data of each row  
-    echo '<table>';
-    echo '<tr>';
-    $count = 0;
-    while ($row = $result->fetch_assoc()) {
-        echo '<td>';
-        echo '<div class="listing" id="listID">';
-        echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
-        echo '<h3 class="category">' . $row["Category"] . '</h3>';
-        echo '<p class="delivery">' . $row["DeliveryPreferences"] . '</p>';
-        echo '<p class="location">' . $row["Location"] . '</p>';
-        echo '<p class="soldstatus">' . $row["SoldStatus"] . '</p>';
-        echo '</div>';
-        echo '</td>';
-        $count++;
-        if ($count % 4 == 0) {
-            echo '</tr><tr>';
-        }
+  // Output data of each row  
+  echo '<table>';
+  echo '<tr>';
+  $count = 0;
+  while ($row = $result->fetch_assoc()) {
+    echo '<td>';
+
+    echo '<div class="listing" id="' . $row["ListingID"] . '">';
+    echo '<a href="listing_details.php?ListingID=' . $row["ListingID"] . '">';
+    echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
+    echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
+    echo '<p class="price">$' . $row["price"] . '</p>'; 
+    // echo '<h3 class="category">' . $row["Category"] . '</h3>';
+    // echo '<p class="delivery">' . $row["DeliveryPreferences"] . '</p>';
+    // echo '<p class="location">' . $row["Location"] . '</p>';
+    // echo '<p class="soldstatus">' . $row["SoldStatus"] . '</p>';
+    echo '</a></div>';
+    echo '</td>';
+
+    $count++;
+    if ($count % 4 == 0) {
+      echo '</tr><tr>';
     }
-    echo '</tr>';
-    echo '</table>';
+  }
+  echo '</tr>';
+  echo '</table>';
 } else {
-    echo "0 results";
+  echo "0 results";
 }
 
 $conn->close();
 ?>
-      <script src="search.js"></script>
 
-    </div>
-  </main>
+</div>
+</main>
 </body>
 
 </html>

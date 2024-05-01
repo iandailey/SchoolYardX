@@ -112,6 +112,21 @@
     });
 </script>
 
+<!-- Function to Pull Contents of Searchbar into the form -->
+<input type="hidden" id="searchInput" name="search" value="">
+
+<script>
+// Get references to the form and search input
+const form = document.querySelector('form');
+const searchInput = document.getElementById('searchbar');
+
+// Add an event listener to the form submission
+form.addEventListener('submit', function(event) {
+    // Set the value of the hidden input field to the search input value
+    document.getElementById('searchInput').value = searchInput.value;
+});
+</script>
+
     <button type="submit">Apply Filters</button>
     </form>
   </nav>
@@ -160,7 +175,6 @@
 
       $conn->close();
       ?>
-      <script src="search.js"></script>
 
     </div>
   </main>
