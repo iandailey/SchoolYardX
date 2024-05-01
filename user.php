@@ -42,11 +42,11 @@
             if ($qresult->num_rows > 0) {
                 $row = $qresult->fetch_assoc();
                 echo "<h1>User Information</h1>" .
-                    "<p><strong>Address:</strong> " . htmlspecialchars($row['Address']) . "</p>" .
-                    "<p><strong>Phone:</strong> " . htmlspecialchars($row['Phone']) . "</p>" .
-                    "<p><strong>Graduation Year:</strong> " . htmlspecialchars($row['GraduationYear']) . "</p>" .
-                    "<p><strong>Profile Picture:</strong> <img src='" . htmlspecialchars($row['ProfilePictureURL']) . "' alt='Profile Picture'></p>" .
-                    "<p><strong>Campus Location:</strong> " . htmlspecialchars($row['CampusLocation']) . "</p>";
+                    "<p><strong>Address:</strong> " . $row['Address'] . "</p>" .
+                    "<p><strong>Phone:</strong> " . $row['Phone'] . "</p>" .
+                    "<p><strong>Graduation Year:</strong> " . $row['GraduationYear'] . "</p>" .
+                    "<p><strong>Profile Picture:</strong> <img src='" . $row['ProfilePictureURL'] . "' alt='Profile Picture'></p>" .
+                    "<p><strong>Campus Location:</strong> " . $row['CampusLocation'] . "</p>";
             }
             $conn->close();
         }
