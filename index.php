@@ -15,7 +15,7 @@
     <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
     <div class="right-items">
     <a href="dashboard.php" id="dashlink"><i class="fa-solid fa-gauge"></i> Dashboard</a>
-    <a href="faq.html" id="faqlink"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+    <a href="faq.php" id="faqlink"><i class="fa-solid fa-circle-question"></i> FAQ</a>
     <?php
     session_start();
 
