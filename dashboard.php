@@ -127,7 +127,7 @@
     <button type="submit">Apply Filters</button>
     </form>
   </nav>
-ß
+
     <main>
 
         <!-- item template -->
@@ -135,45 +135,29 @@
             <?php
             
             if (isset($_SESSION['userid'])) {
-                $userid = $_SESSION['userid'];
-                include 'dbconnect.php';
-
-                $sql = "SELECT Items.*, Images.img_dir FROM Items INNER JOIN Images ON Items.imageid = Images.imageid WHERE UserID = '$userid'";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    // Output data of each row  
-                    echo '<table>';
-                    echo '<tr>';
-                    $count = 0;
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<td>';
-                        $listid = "listing" . $row['ListingID'];
-                        echo '<div class="listing" id="' . $listid . '">';
-                        echo '<a href="listing_details.php?ListingID=' . $row["ListingID"] . '">';
-                        echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
-                        echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
-                        echo '<h3 class="category">' . $row["Category"] . '</h3>';
-                        echo '<p class="delivery">' . $row["DeliveryPreferences"] . '</p>';
-                        echo '<p class="location">' . $row["Location"] . '</p>';
-                        echo '<p class="soldstatus">' . $row["SoldStatus"] . '</p>';
-                        echo '</a></div>';
-                        echo '</td>';
-
-                        $count++;
-                        if ($count % 3 == 0) {
-                            echo '</tr><tr>';
-                        }
-                    }
-                    echo '</tr>';
-                    echo '</table>';
+                    <th>Category</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>";
+                  while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row['prod_name'] . "</td>";
+                    echo "<td>" . $row['Category'] . "</td>";
+                    echo "<td>" . $row['SoldStatus'] . "</td>";
+                    echo "<td><button class='delete-btn' data-id='{" . $row['ListingID'] . "}'>Delete</button></td>";
+                    echo "</tr>";
+                  }
+                  echo "</tbody>";
+                  echo "</table>";
                 } else {
-                    echo "0 results";
+                  echo "You have not made any posts yet.";
                 }
-
+          
                 $conn->close();
-            }else{
-                header('login.html');
-            }
+              }
+            ?>
+            <script src="userjs.js"></script>
             ?>
 
 
