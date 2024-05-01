@@ -12,9 +12,10 @@
   <header class="topnav">
     <a href="index.php" id="mainpage">SchoolYard Xchange</a>
     <input type="text" placeholder="Search the SchoolYard" id="searchbar" />
+    <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
     <div class="right-items">
     <a href="dashboard.php" id="dashlink"><i class="fa-solid fa-gauge"></i> Dashboard</a>
-    <a href="faq.html" id="faqlink"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+    <a href="faq.php" id="faqlink"><i class="fa-solid fa-circle-question"></i> FAQ</a>
     <?php
     session_start();
 
@@ -59,11 +60,12 @@
     <br>
     <hr>
     <strong><u>Sort By:</u></strong>
-    <form action="filtered.php" method=GET>
+    <form action="filtered.php" method=GET id="filterForm">
     <select name="sort" id="sort">
       <option value="recent">Most Recent</option>
-      <option value="top">Highest Rated</option>
       <option value="old">Oldest</option>
+      <option value="high">Price: High to Low</option>
+      <option value="low">Price: Low to High</option>
     </select>
     <br>
     <hr>
@@ -74,19 +76,19 @@
     <br>
     <hr>
     <br>
-    <input type="checkbox" class="category-checkbox" name="books" id="bookcheck" checked>
+    <input type="checkbox" class="category-checkbox" name="1" id="bookcheck" checked>
     <label for="bookcheck"><i class="fa-solid fa-book"></i> Books</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="furniture" id="furncheck" checked>
+    <input type="checkbox" class="category-checkbox" name="2" id="furncheck" checked>
     <label for="furncheck"><i class="fa-solid fa-couch"></i> Furniture</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="home" id="homecheck" checked>
+    <input type="checkbox" class="category-checkbox" name="3" id="homecheck" checked>
     <label for="homecheck"><i class="fa-solid fa-kitchen-set"></i> Home</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="electronics" id="elecheck" checked>
+    <input type="checkbox" class="category-checkbox" name="4" id="elecheck" checked>
     <label for="elecheck"><i class="fa-solid fa-calculator"></i> Electronics</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="clothes" id="clothescheck" checked>
+    <input type="checkbox" class="category-checkbox" name="5" id="clothescheck" checked>
     <label for="clothescheck"><i class="fa-solid fa-shirt"></i> Clothes</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="accessories" id="accessoriescheck" checked>
+    <input type="checkbox" class="category-checkbox" name="6" id="accessoriescheck" checked>
     <label for="accessoriescheck"><i class="fa-regular fa-gem"></i> Jewelry / Accessories</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="misc" id="misccheck" checked>
+    <input type="checkbox" class="category-checkbox" name="7" id="misccheck" checked>
     <label for="misccheck"><i class="fa-solid fa-bars"></i> Miscellaneous</label> <br> <br>
     <button type="button" id="select">Select All</button>
     <button type="button" id="deselect">Deselect All</button>
@@ -129,6 +131,17 @@ form.addEventListener('submit', function(event) {
 
     <button type="submit">Apply Filters</button>
     </form>
+
+    <script>
+document.getElementById('searchButton').addEventListener('click', function() {
+  // Set the value of the hidden input field to the search input value
+  document.getElementById('searchInput').value = document.getElementById('searchbar').value;
+    // Submit the form when the search button is clicked
+    document.getElementById('filterForm').submit();
+});
+</script>
+
+
   </nav>
 
   <main>
@@ -138,7 +151,7 @@ form.addEventListener('submit', function(event) {
       include 'dbconnect.php';
 
       // SQL query to fetch data from the database
-      $sql = "SELECT Items.*, Images.img_dir FROM Items INNER JOIN Images ON Items.imageid = Images.imageid";
+      $sql = "SELECT Items.*, Images.img_dir FROM Items INNER JOIN Images ON Items.imageid = Images.imageid ORDER BY Timestamp DESC";
       $result = $conn->query($sql);
 
       // Check if any rows were returned

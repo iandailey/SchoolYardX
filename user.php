@@ -4,25 +4,27 @@
     <meta charset="UTF-8" />
     <title>SchoolYard Exchange</title>
     <link rel="stylesheet" href="user.css">
+     <script src="https://kit.fontawesome.com/34c6296155.js" crossorigin="anonymous"></script>
+</head>
 </head>
 <body>
     <header class="topnav">
-        <a href="index.php" id="mainpage">SchoolYard Exchange</a>
-        <div class="right-items">
+        <a href="index.php" id="mainpage">SchoolYard Xchange</a>
+
+            <div class="right-items">
+    <a href="dashboard.php" id="dashlink"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    <a href="faq.php" id="faqlink"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+    <div class="right-items">
             <?php
             session_start();
             if (isset($_SESSION['Email'])) {
                 $fname = $_SESSION['fname'];
-                echo "<a href='user.php' id='loginlink'>$fname's Account</a>";
+                echo "<a href='user.php' id='loginlink'><i class='fa-solid fa-user'></i> Account</a>";
             } else {
                 echo "<a href='login.html' id='loginlink'>Login</a>";
             }
             ?>
-            <a href="favorites.html" id="favlink">Favorites</a>
-            <a href="dashboard.php" id="dashlink">Dashboard</a>
-        </div>
     </header>
-
     <main>
         <?php
         error_reporting(E_ALL & ~E_DEPRECATED);
@@ -32,7 +34,7 @@
         }
         ?>
         <br><br>
-        <h2>User Info:</h2>
+        
         <?php
         if (isset($_SESSION['userid'])) {
             $userid = $_SESSION['userid'];
@@ -55,7 +57,7 @@
         <div class="userform">
             <form action="user.php" method="post">
                 <fieldset>
-                    <legend>User Information Required</legend>
+                    <legend>Update Your Information</legend>
                     <label for="address">Address:</label>
                     <input type="text" id="address" name="address" required><br>
 

@@ -76,20 +76,20 @@
     <br>
     <hr>
     <br>
-    <input type="checkbox" class="category-checkbox" name="1" id="bookcheck" checked>
-    <label for="bookcheck"><i class="fa-solid fa-book"></i> Books</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="2" id="furncheck" checked>
-    <label for="furncheck"><i class="fa-solid fa-couch"></i> Furniture</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="3" id="homecheck" checked>
-    <label for="homecheck"><i class="fa-solid fa-kitchen-set"></i> Home</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="4" id="elecheck" checked>
-    <label for="elecheck"><i class="fa-solid fa-calculator"></i> Electronics</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="5" id="clothescheck" checked>
-    <label for="clothescheck"><i class="fa-solid fa-shirt"></i> Clothes</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="6" id="accessoriescheck" checked>
-    <label for="accessoriescheck"><i class="fa-regular fa-gem"></i> Jewelry / Accessories</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="7" id="misccheck" checked>
-    <label for="misccheck"><i class="fa-solid fa-bars"></i> Miscellaneous</label> <br> <br>
+    <input type="checkbox" class="category-checkbox" name="books" id="bookcheck" checked>
+    <label for="bookcheck">Books</label> <br> <br>
+    <input type="checkbox" class="category-checkbox" name="furniture" id="furncheck" checked>
+    <label for="furncheck">Furniture</label> <br> <br>
+    <input type="checkbox" class="category-checkbox" name="home" id="homecheck" checked>
+    <label for="homecheck">Home</label> <br> <br>
+    <input type="checkbox" class="category-checkbox" name="electronics" id="elecheck" checked>
+    <label for="elecheck">Electronics</label> <br> <br>
+    <input type="checkbox" class="category-checkbox" name="clothes" id="clothescheck" checked>
+    <label for="clothescheck">Clothes</label> <br> <br>
+    <input type="checkbox" class="category-checkbox" name="accessories" id="accessoriescheck" checked>
+    <label for="accessoriescheck">Jewelry / Accessories</label> <br> <br>
+    <input type="checkbox" class="category-checkbox" name="misc" id="misccheck" checked>
+    <label for="misccheck">Miscellaneous</label> <br> <br>
     <button type="button" id="select">Select All</button>
     <button type="button" id="deselect">Deselect All</button>
 
@@ -146,57 +146,52 @@ document.getElementById('searchButton').addEventListener('click', function() {
     <main>
 
         <!-- item template -->
-<div class="container">
-    <?php
-    if (isset($_SESSION['userid'])) {
-        $userid = $_SESSION['userid'];
-        include 'dbconnect.php';
+        <div class="container">
+            <?php
+            
+            if (isset($_SESSION['userid'])) {
+              $userid = $_SESSION['userid'];
+              include 'dbconnect.php';
         
-        $sql = "SELECT Items.*, Images.img_dir FROM Items INNER JOIN Images ON Items.imageid = Images.imageid WHERE UserID = '$userid'";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            echo '<table>';
-            echo '<tr>';
-            $count = 0;
-            while ($row = $result->fetch_assoc()) {
-                echo '<td>';
-                $listid = "listing" . $row['ListingID'];
-                echo '<div class="listing" id="' . $listid . '">';
-                echo '<a href="listing_details.php?ListingID=' . $row["ListingID"] . '">';
-                echo '<img class="listimg" src="' . $row["img_dir"] . '" /> <br />';
-                echo '<h2 class="name">' . $row["prod_name"] . '</h2>';
-                echo '<h3 class="category">' . $row["Category"] . '</h3>';
-                echo '<p class="delivery">' . $row["DeliveryPreferences"] . '</p>';
-                echo '<p class="location">' . $row["Location"] . '</p>';
-                echo '<p class="soldstatus">' . $row["SoldStatus"] . '</p>';
-                echo '</a>';
-                echo '<div style="display: flex; justify-content: space-between;">'; // Style for inline flexbox
-                echo '<button style="margin-right: 5px;" onclick="location.href=\'edit_item.php?ListingID=' . $row['ListingID'] . '\'">Edit</button>';
-                echo '<form action="delete_listing.php" method="post" style="display:inline;">
-                      <input type="hidden" name="id" value="' . $row['ListingID'] . '">
-                      <button type="submit" onclick="return confirm(\'Are you sure you want to delete this item?\');">Delete</button>
-                      </form>';
-                echo '</div>'; // Close flex container
-                echo '</div>';
-                echo '</td>';
-
-                $count++;
-                if ($count % 3 == 0) {
-                    echo '</tr><tr>';
+              $sql = "SELECT * FROM Items where UserID = '$userid'";
+        
+              $result = $conn->query($sql);
+        
+              if ($result->num_rows > 0) {
+                echo "<table>";
+                echo "<thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>";
+                while ($row = $result->fetch_assoc()) {
+                  echo "<tr>";
+                  echo "<td>" . $row['prod_name'] . "</td>";
+                  echo "<td>" . $row['Category'] . "</td>";
+                  echo "<td>" . $row['SoldStatus'] . "</td>";
+                  echo "<td><button class='delete-btn' data-id='{" . $row['ListingID'] . "}'>Delete</button></td>";
+                  echo "</tr>";
                 }
+                echo "</tbody>";
+                echo "</table>";
+              } else {
+                echo "You have not made any posts yet.";
+              }
+        
+              $conn->close();
             }
-            echo '</tr>';
-            echo '</table>';
-        } else {
-            echo "0 results";
-        }
-        $conn->close();
-    } else {
-        header('location: login.html');
-    }
-    ?>
-</div>
+        
+        
+        
+        
+            ?>
+            <script src="userjs.js"></script>
+        
 
+        </div>
     </main>
 </body>
 

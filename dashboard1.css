@@ -45,8 +45,8 @@ body::after {
     top: 0;
     left: 0;
     z-index: 1000; 
-
-
+    
+    
 }
 
 .topnav #mainpage {
@@ -56,7 +56,7 @@ body::after {
 .topnav .left-items {
     display: flex; /* Use flexbox for left items */
     float: left;
-
+    
 }
 
 .topnav .right-items {
@@ -97,7 +97,6 @@ body::after {
 #searchButton i {
     color: black;
 }
-
 
 .sidenav {
     float: left;
@@ -151,7 +150,7 @@ body::after {
     flex-wrap: wrap;
     justify-content: space-around; /* Changed to space-around for even spacing */
     margin-left: 15%; /* Offset for the sidebar */
-    padding-top: 100px;
+    padding-top: 120px;
 }
 
 .listing {
@@ -159,13 +158,15 @@ body::after {
     height: 400px; /* Fixed height for each listing */
     border: 1px solid #ddd; /* Lighter border for a cleaner look */
     background-color: #ffffff; /* White background for the listings */
-    margin: 12px; /* Add some space between the listings */
+    margin: 10px; /* Add some space between the listings */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
     padding: 10px; /* Padding inside the listings */
     border-radius: 7px; /* Rounded corners for aesthetics */
     display: flex; /* Added to make sure content is properly aligned */
     flex-direction: column; /* Stack children vertically */
     justify-content: space-between; /* Space out children vertically */
+    overflow: hidden;
+    
 }
 
 
@@ -185,8 +186,9 @@ body::after {
 .listing .location, 
 .listing .soldstatus {
     align-self: flex-start; /* Align text to the start (left) */
-    font-size: 16px;
+    font-size: 12px;
     margin: 0.1px 0; /* Minimal margin between lines */
+    color: black;
 }
 
 .listing .price {

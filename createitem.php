@@ -3,25 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="create-listing.css">
+         <script src="https://kit.fontawesome.com/34c6296155.js" crossorigin="anonymous"></script>
         <title>Create Listing</title>
     </head>
 
     <body>
-    <header class="topnav">
-    <a href="index.php" id="mainpage">SchoolYard Exchange</a>
+<header class="topnav">
+    <a href="index.php" id="mainpage">SchoolYard Xchange</a>
     <input type="text" placeholder="Search the SchoolYard" id="searchbar" />
     <div class="right-items">
+    <a href="dashboard.php" id="dashlink"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    <a href="faq.php" id="faqlink"><i class="fa-solid fa-circle-question"></i> FAQ</a>
     <?php
     session_start();
 
     // Check if user is logged in
     if (isset($_SESSION['Email'])) {
       $fname = $_SESSION['fname'];
-      echo "<a href='user.php' id='loginlink'>$fname's Account</a>";
+      echo "<a href='user.php' id='loginlink'><i class='fa-solid fa-user'></i> Account</a>";
 
     } else {
       // Show login
-      echo "<a href='login.html' id='loginlink'>Login</a>";
+      echo "<a href='login.html' id='loginlink'><i class='fa-solid fa-user'></i> Login</a>";
     }
 
     error_reporting(E_ALL);
@@ -29,9 +32,6 @@
 
 
     ?>
-
-    <a href="favorites.html" id="favlink">Favorites</a>
-    <a href="dashboard.php" id="dashlink">Dashboard</a>
     </div>
   </header>
 
@@ -72,13 +72,13 @@
                     <!-- Item category selection, adjusted to radio buttons -->
                     <label for="category">Item Category:</label>
                     <div class="category-radio-buttons">
-                        <label><input type="radio" name="category" value="Books"> Books</label>
-                        <label><input type="radio" name="category" value="Furniture"> Furniture</label>
-                        <label><input type="radio" name="category" value="Home"> Home</label>
-                        <label><input type="radio" name="category" value="Electronics"> Electronics</label>
-                        <label><input type="radio" name="category" value="Clothes"> Clothes</label>
-                        <label><input type="radio" name="category" value="Jewelry/Accessories"> Jewelry / Accessories</label>
-                        <label><input type="radio" name="category" value="Miscellaneous"> Miscellaneous / Other</label>
+                        <label><input type="radio" name="category" value="books"> Books</label>
+                        <label><input type="radio" name="category" value="furniture"> Furniture</label>
+                        <label><input type="radio" name="category" value="home"> Home</label>
+                        <label><input type="radio" name="category" value="electronics"> Electronics</label>
+                        <label><input type="radio" name="category" value="clothes"> Clothes</label>
+                        <label><input type="radio" name="category" value="accessories"> Jewelry / Accessories</label>
+                        <label><input type="radio" name="category" value="misc"> Miscellaneous / Other</label>
                     </div>
 
                     <br><br>
@@ -104,11 +104,7 @@
                         <option value="off-campus">off campus</option>
                     </select><br><br>
                 
-                    <label for="sold">Select an sold status:</label>
-                    <select id="sold" name="sold">
-                        <option value="available">available</option>
-                        <option value="sold">sold</option>
-                    
+                   
                     </select><br><br>
 
 
