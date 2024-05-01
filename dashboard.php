@@ -86,19 +86,19 @@
     <br>
     <hr>
     <br>
-    <input type="checkbox" class="category-checkbox" name="books" id="bookcheck" checked>
+    <input type="checkbox" class="category-checkbox" name="1" id="bookcheck" checked>
     <label for="bookcheck">Books</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="furniture" id="furncheck" checked>
+    <input type="checkbox" class="category-checkbox" name="2" id="furncheck" checked>
     <label for="furncheck">Furniture</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="home" id="homecheck" checked>
+    <input type="checkbox" class="category-checkbox" name="3" id="homecheck" checked>
     <label for="homecheck">Home</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="electronics" id="elecheck" checked>
+    <input type="checkbox" class="category-checkbox" name="4" id="elecheck" checked>
     <label for="elecheck">Electronics</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="clothes" id="clothescheck" checked>
+    <input type="checkbox" class="category-checkbox" name="5" id="clothescheck" checked>
     <label for="clothescheck">Clothes</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="accessories" id="accessoriescheck" checked>
+    <input type="checkbox" class="category-checkbox" name="6" id="accessoriescheck" checked>
     <label for="accessoriescheck">Jewelry / Accessories</label> <br> <br>
-    <input type="checkbox" class="category-checkbox" name="misc" id="misccheck" checked>
+    <input type="checkbox" class="category-checkbox" name="7" id="misccheck" checked>
     <label for="misccheck">Miscellaneous</label> <br> <br>
     <button type="button" id="select">Select All</button>
     <button type="button" id="deselect">Deselect All</button>
