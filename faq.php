@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>SchoolYard Exchange</title>
+  <title>SchoolYard Xchange</title>
   <link rel="stylesheet" href="faq.css">
   <script src="https://kit.fontawesome.com/34c6296155.js" crossorigin="anonymous"></script>
 </head>

@@ -1,157 +1,196 @@
 /* Basic reset for form elements */
 body, h2, form, fieldset, label, input, button, textarea {
-    margin: 0;
-    padding: 0;
-    border: none;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  padding-top: 100px;
 }
 
 /* Body and page layout with background image */
 body {
-    background-image: url('UYard.png'); /* Background image */
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    position: relative;
-    background-color: aliceblue; /* Used if the image is not found */
+  background-image: url('UYard.png'); /* Background image */
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+  background-color: aliceblue; /* Used if the image is not found */
 }
 
 /* Aliceblue overlay that covers the full website */
 body::after {
-    content: '';
-    position: fixed; /* Covers the full viewport */
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: aliceblue; /* Changed to aliceblue */
-    opacity: 0.7; /* 0.7 transparent */
-    z-index: -1;
+  content: '';
+  position: fixed; /* Covers the full viewport */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: aliceblue; /* Changed to aliceblue */
+  opacity: 0.7; /* 0.7 transparent */
+  z-index: -1;
 }
 .topnav {
-    background-color: rgba(8, 83, 148, 255);
-    padding: 10px;
-    text-decoration: none;
-    font-size: 24pt;
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    /* To make the navigation bar fixed:
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000; */
+  height: 60px;
+  background-color: rgba(8, 83, 148, 255);
+  padding: 10px;
+  text-decoration: none;
+  font-size: 24pt;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+ /* To make the navigation bar fixed: */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; 
+  
+  
+}
+
+.topnav #mainpage {
+  font-weight: bold;
 }
 
 .topnav .left-items {
-    display: flex; /* Use flexbox for left items */
-    float: left;
-    
+  display: flex; /* Use flexbox for left items */
+  float: left;
+  
 }
 
 .topnav .right-items {
-    display: flex; /* Use flexbox for right items */
-    float: right;
+  display: flex; /* Use flexbox for right items */
+  float: right;
+  padding-right: 20px; /* Add padding on the right side */
 }
-
 
 .topnav a {
-    color: rgb(255, 196, 0);
-    margin: 5px;
-    padding: 2px;
-    text-decoration: none;
+  color: rgb(255, 196, 0);
+  margin: 5px;
+  padding: 2px;
+  text-decoration: none;
 }
 
-  /* Main content area */
-  main.center {
-    background: #ffffff;
-    width: 60%;
-    margin: 30px auto;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  /* Form layout */
-  form.create-listing-form {
-    display: block;
-  }
-  
-  /* Form headings */
-  h2 {
-    font-size: 24px;
-    color: #333;
-    border-bottom: 2px solid #eaeaea;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-  }
-  
-  /* Form field styles */
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  input[type="text"],
-  textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #eaeaea;
-    font-size: 16px;
-  }
-  
-  textarea {
-    height: 120px;
-    resize: none;
-  }
-  
-  /* File upload area */
-  .upload-section {
-    border: 2px dashed #eaeaea;
-    text-align: center;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .drag-drop-area p {
-    color: #666;
-    font-size: 14px;
-  }
-  
-  /* Publish button */
-  .publish-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 12px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-transform: uppercase;
-    display: block; /* Make the button expand to full width */
-    width: 100%;
-  }
-  
-  .publish-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Checkbox styles */
-  .category-checkboxes {
-    margin-bottom: 20px;
-  }
-  
-  .category-checkboxes label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .category-checkboxes input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  
+.topnav .right-items a {
+  margin-right: 20px; /* Adjust the space as needed */
+  color: white;
+}
+
+.topnav i {
+  color: white;
+}
+
+
+
+
+#searchbar {
+  width: 50%;
+  padding: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+  margin-left:10px;
+}
+
+
+/* Main content area */
+main.center {
+  background: #ffffff;
+  width: 60%;
+  margin: 30px auto;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Form layout */
+form.create-listing-form {
+  display: block;
+}
+
+/* Form headings */
+h2 {
+  font-size: 24px;
+  color: #333;
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Form field styles */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #eaeaea;
+  font-size: 16px;
+}
+
+#price {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #eaeaea;
+  font-size: 16px;
+}
+
+textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* File upload area */
+.upload-section {
+  border: 2px dashed #eaeaea;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.drag-drop-area p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Publish button */
+.publish-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: block; /* Make the button expand to full width */
+  width: 100%;
+}
+
+.publish-button:hover {
+  background-color: #0056b3;
+}
+
+/* Checkbox styles */
+.category-checkboxes {
+  margin-bottom: 20px;
+}
+
+.category-checkboxes label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.category-checkboxes input[type="checkbox"] {
+  margin-right: 10px;
+}

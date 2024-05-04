@@ -33,6 +33,7 @@ if(mysqli_ping($con) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $email = $_POST['email'];
+    // $pass1 = md5($_POST['pass1']);
     $pass1 = $_POST['pass1'];
 
     // Prepared statement to prevent SQL injection
@@ -41,9 +42,9 @@ if(mysqli_ping($con) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("ssss", $fname, $lname, $email, $pass1);    
 
     if($stmt->execute()) {
-        header("Location: home.php");
+        header("Location: index.php");
         echo "Congratulations $fname $lname! You are registered with SchoolYard. <br>";
-        echo "Back to Home Page: <a href='index.php'>Home</a>";
+        echo "Back to Home Page: <a href='home.html'>Home</a>";
     } else {
         echo "Error: " . $sql . "<br>" . $con->error;
     }

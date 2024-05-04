@@ -23,7 +23,7 @@ if (mysqli_connect_errno()) {
 if (mysqli_ping($con) && $_SERVER['REQUEST_METHOD'] =='POST') {
     $email = mysqli_real_escape_string($con, $_POST["email"]);
     $pass = mysqli_real_escape_string($con, $_POST["pass"]);
-
+    
 
     $sql = "select count(*) from Users where Email = '$email' and Password = '$pass'";
     $result = $con->query($sql);
@@ -40,12 +40,12 @@ if (mysqli_ping($con) && $_SERVER['REQUEST_METHOD'] =='POST') {
         $_SESSION['Email'] = $email; // Store username in session
         $_SESSION['fname'] = $row['FirstName'];
         $_SESSION['userid'] = $row['UserID'];
-        header("Location: home.php");
+        header("Location: index.php");
         exit();
     }
     else {
         echo "<p>Username or password incorrect.</p>";
-        echo "<p><a href='login.html'>Click here to return to login page</a></p>";
+        echo "<p><a href='index.php'>Click here to return to login page</a></p>";
     }
 }
 

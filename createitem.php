@@ -54,7 +54,7 @@
                     <input type="text" id="item_name" name="item_name" placeholder="What's your item called?"><br>
 
                     <label for="price">Price:</label>
-                    <input type="text" id="price" name="price" placeholder="How much does your item cost?" oninput="removeDollarSign(this)"><br>
+                    <input type="number" id="price" name="price" placeholder="How much does your item cost?" oninput="removeDollarSign(this)"><br>
 
                     <!-- script to remove dollar sign -->
                     <script>

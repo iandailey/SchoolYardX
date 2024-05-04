@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if (!isset($_SESSION['userid'])) {
     header('Location: login.html');
@@ -12,7 +13,7 @@ if (!$listingID) {
 }
 
 include 'dbconnect.php';
-$sql = "SELECT * FROM Items WHERE ListingID = ?";
+$sql = "SELECT Items.*, Images.img_dir FROM Items INNER JOIN Images ON Items.imageid = Images.imageid WHERE ListingID = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $listingID);
 $stmt->execute();
@@ -59,19 +60,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <header class="topnav">
         <a href="index.php" id="mainpage">SchoolYard Xchange</a>
-        <input type="text" placeholder="Search the SchoolYard" id="searchbar" />
-        <div class="right-items">
-            <a href="dashboard.php" id="dashlink"><i class="fa-solid fa-gauge"></i> Dashboard</a>
-            <a href="faq.php" id="faqlink"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+
+            <div class="right-items">
+    <a href="dashboard.php" id="dashlink"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    <a href="faq.php" id="faqlink"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+    <div class="right-items">
             <?php
-            session_start();
+            
             if (isset($_SESSION['Email'])) {
+                $fname = $_SESSION['fname'];
                 echo "<a href='user.php' id='loginlink'><i class='fa-solid fa-user'></i> Account</a>";
             } else {
-                echo "<a href='login.html' id='loginlink'><i class='fa-solid fa-user'></i> Login</a>";
+                echo "<a href='login.html' id='loginlink'>Login</a>";
             }
             ?>
-        </div>
     </header>
     <main class="center">
         <h2>Edit Listing</h2>
@@ -87,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" id="item_name" name="item_name" value="<?php echo htmlspecialchars($item['prod_name']); ?>"><br>
 
                 <label for="price">Price:</label>
-                <input type="text" id="price" name="price" value="<?php echo htmlspecialchars($item['Price']); ?>"><br>
+                <input type="number" id="price" name="price" placeholder="<?php echo $item['price']; ?>"><br>
 
                 <label for="description">Describe Your Item:</label>
                 <textarea id="description" name="description"><?php echo htmlspecialchars($item['Description']); ?></textarea><br>

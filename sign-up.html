@@ -4,21 +4,31 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="UM-layout1.css">
         <title>Login</title>
+         <script src="https://kit.fontawesome.com/34c6296155.js" crossorigin="anonymous"></script>
+         <script>
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+            var pattern = /^[a-zA-Z0-9._-]+@gwu.edu$/; // Regex pattern to match @gwu.edu emails
+            if (!pattern.test(email)) {
+                alert("Please enter a valid GWU email address ending with @gwu.edu.");
+                return false; // Prevent form submission
+            }
+            return true;
+        }
+        </script>
     </head>
 
     <body>
-          <header class="topnav">
-    <a href="index.php" id="mainpage">SchoolYard Exchange</a>
+           <header class="topnav">
+    <a href="index.php" id="mainpage">SchoolYard Xchange</a>
     <input type="text" placeholder="Search the SchoolYard" id="searchbar" />
     <div class="right-items">
-
-    <a href="favorites.html" id="favlink">Favorites</a>
-    <a href="dashboard.php" id="dashlink">Dashboard</a>
-    </div>
+    <a href="dashboard.php" id="dashlink"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    <a href="faq.html" id="faqlink"><i class="fa-solid fa-circle-question"></i> FAQ</a>
   </header>
         <main class="center">
             <h2>Register</h2>
-            <form action="register.php" method="POST">
+            <form action="register.php" method="POST" onsubmit="return validateEmail()">
                 <fieldset>
                     <label for="fname">* First Name:</label>
                     <input type="text" name="fname" id="fname" required> <br> <br>

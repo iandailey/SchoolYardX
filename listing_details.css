@@ -1,0 +1,163 @@
+/* Basic reset for form elements */
+body, h2, form, fieldset, label, input, button, textarea {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    padding-top: 100px; /* Space to accommodate fixed navbar */
+}
+
+/* Body and page layout with background image */
+body {
+    background-image: url('UYard.png'); /* Background image */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    background-color: aliceblue; /* Used if the image is not found */
+}
+
+/* Aliceblue overlay that covers the full website */
+body::after {
+    content: '';
+    position: fixed; /* Covers the full viewport */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: aliceblue; /* Changed to aliceblue */
+    opacity: 0.7; /* Transparency effect */
+    z-index: -1; /* Ensures it's behind the content */
+}
+
+.topnav {
+    height: 60px;
+    background-color: rgba(8, 83, 148, 255);
+    padding: 10px;
+    text-decoration: none;
+    font-size: 24pt;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.topnav #mainpage {
+    font-weight: bold;
+}
+
+.topnav .left-items {
+    display: flex;
+    float: left;
+}
+
+.topnav .right-items {
+    display: flex;
+    float: right;
+    padding-right: 20px;
+}
+
+.topnav a {
+    color: rgb(255, 196, 0);
+    margin: 5px;
+    padding: 2px;
+    text-decoration: none;
+}
+
+.topnav .right-items a {
+    margin-right: 20px;
+    color: white;
+}
+
+.topnav i {
+    color: white;
+}
+
+#searchbar {
+    width: 50%;
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+/* Main content area */
+main.center {
+    background: #ffffff;
+    width: 40%; /* Reduced width for less wide listing */
+    margin: 60px auto; /* Increased top margin to accommodate fixed navbar */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.listing-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Aligns children (content and button) on main axis */
+    height: 100%; /* Ensures it takes full available height */
+}
+
+.email-button {
+    margin-left: 65%;
+    align-self: flex-end; /* Aligns the email button to the right */
+    margin-top: auto; /* Pushes the button to the bottom */
+    background-color: rgba(8, 83, 148, 255); 
+    color: white; /* White text color */
+    padding: 8px 12px;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.email-button:hover {
+    background-color: blue; /* Darker shade of green on hover */
+}
+
+/* Listing details styling */
+h2 {
+    font-size: 32px; /* Increased font size for listing title */
+    color: #333;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.listimg {
+     width: 100%; /* Full width relative to its container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 500px; /* Set a maximum height */
+    object-fit: contain; /* Ensures the image fits within its bounds */
+    display: block; /* Block display to adhere to width/height */
+    margin: 0 auto; /* Center the image within the container */
+    border-radius: 4px; /* Aesthetic choice for rounded corners */
+}
+
+/* Description and other details styling */
+p {
+    font-size: 18px; /* Larger font size for details */
+    color: #333;
+    margin-bottom: 10px; /* Space between paragraphs */
+}
+
+/* File upload area and other similar sections */
+.upload-section, .category-checkboxes {
+    border: 2px dashed #eaeaea;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.publish-button, .category-checkboxes input[type="checkbox"] {
+    font-size: 18px; /* Larger font size for interactive elements */
+}
+

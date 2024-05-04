@@ -4,6 +4,11 @@ body, h2, form, fieldset, label, input, button, textarea {
   padding: 0;
   border: none;
   font-family: Arial, sans-serif;
+  
+}
+
+body {
+  padding-top: 100px;
 }
 
 /* Body and page layout with background image */
@@ -29,8 +34,8 @@ body::after {
   z-index: -1;
 }
 
-/* Top navigation styling */
 .topnav {
+  height: 60px;
   background-color: rgba(8, 83, 148, 255);
   padding: 10px;
   text-decoration: none;
@@ -40,6 +45,30 @@ body::after {
   display: flex;
   flex-direction: row;
   overflow: hidden;
+ /* To make the navigation bar fixed: */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; 
+  
+  
+}
+
+.topnav #mainpage {
+  font-weight: bold;
+}
+
+.topnav .left-items {
+  display: flex; /* Use flexbox for left items */
+  float: left;
+  
+}
+
+.topnav .right-items {
+  display: flex; /* Use flexbox for right items */
+  float: right;
+  padding-right: 20px; /* Add padding on the right side */
 }
 
 .topnav a {
@@ -47,6 +76,26 @@ body::after {
   margin: 5px;
   padding: 2px;
   text-decoration: none;
+}
+
+.topnav .right-items a {
+  margin-right: 20px; /* Adjust the space as needed */
+  color: white;
+}
+
+.topnav i {
+  color: white;
+}
+
+
+
+
+#searchbar {
+  width: 50%;
+  padding: 10px;
+  margin-right: 70px;
+  margin-top: 20px;
+
 }
 
 /* Main content area */
@@ -58,6 +107,7 @@ main.center {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: relative;
   z-index: 1;
+  
 }
 
 /* Form field styles */

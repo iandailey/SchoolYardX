@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>SchoolYard Exchange</title>
+    <title>SchoolYard Xchange</title>
     <link rel="stylesheet" href="user.css">
      <script src="https://kit.fontawesome.com/34c6296155.js" crossorigin="anonymous"></script>
 </head>
@@ -84,45 +84,45 @@
         <br><br>
         <button onclick="window.location.href = 'createitem.php';">Add a new item!</button>
         <br><br>
-        <h4>Edit Posted Items</h4>
-        <?php
-        if (isset($_SESSION['userid'])) {
-            $userid = $_SESSION['userid'];
-            include 'dbconnect.php';
-            $sql = "SELECT * FROM Items where UserID = '$userid'";
-            $result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    echo "<table>";
-    echo "<thead>
-      <tr>
-        <th>Item</th>
-        <th>Category</th>
-        <th>Status</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>";
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . htmlspecialchars($row['prod_name']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['Category']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['SoldStatus']) . "</td>";
-        echo "<td>
-                <form action='delete_item.php' method='post'>
-                    <input type='hidden' name='id' value='" . $row['ListingID'] . "'>
-                    <button type='submit' class='delete-btn' onclick='return confirm(\"Are you sure you want to delete this item?\");'>Delete</button>
-                </form>
-              </td>";
-        echo "</tr>";
-    }
-    echo "</tbody>";
-    echo "</table>";
-} else {
-    echo "You have not made any posts yet.";
-}
-            $conn->close();
-        }
-        ?>
+<!--        <h4>Edit Posted Items</h4>-->
+<!--        <?php-->
+<!--        if (isset($_SESSION['userid'])) {-->
+<!--            $userid = $_SESSION['userid'];-->
+<!--            include 'dbconnect.php';-->
+<!--            $sql = "SELECT * FROM Items where UserID = '$userid'";-->
+<!--            $result = $conn->query($sql);-->
+<!--if ($result->num_rows > 0) {-->
+<!--    echo "<table>";-->
+<!--    echo "<thead>-->
+<!--      <tr>-->
+<!--        <th>Item</th>-->
+<!--        <th>Category</th>-->
+<!--        <th>Status</th>-->
+<!--        <th>Delete</th>-->
+<!--      </tr>-->
+<!--    </thead>-->
+<!--    <tbody>";-->
+<!--    while ($row = $result->fetch_assoc()) {-->
+<!--        echo "<tr>";-->
+<!--        echo "<td>" . htmlspecialchars($row['prod_name']) . "</td>";-->
+<!--        echo "<td>" . htmlspecialchars($row['Category']) . "</td>";-->
+<!--        echo "<td>" . htmlspecialchars($row['SoldStatus']) . "</td>";-->
+<!--        echo "<td>-->
+<!--                <form action='delete_item.php' method='post'>-->
+<!--                    <input type='hidden' name='id' value='" . $row['ListingID'] . "'>-->
+<!--                    <button type='submit' class='delete-btn' onclick='return confirm(\"Are you sure you want to delete this item?\");'>Delete</button>-->
+<!--                </form>-->
+<!--              </td>";-->
+<!--        echo "</tr>";-->
+<!--    }-->
+<!--    echo "</tbody>";-->
+<!--    echo "</table>";-->
+<!--} else {-->
+<!--    echo "You have not made any posts yet.";-->
+<!--}-->
+<!--            $conn->close();-->
+<!--        }-->
+<!--        ?>-->
     </main>
 </body>
 </html>
