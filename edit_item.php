@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $condition = $_POST['condition'];
 
     // Prepare the update query
-    $update_sql = "UPDATE Items SET prod_name=?, Price=?, Description=?, Category=?, Condition=? WHERE ListingID=?";
+    $update_sql = "UPDATE Items SET prod_name=?, Price=?, Description=?, Category=?, `Condition`=? WHERE ListingID=?";
     $update_stmt = $conn->prepare($update_sql);
     $update_stmt->bind_param("sssssi", $item_name, $price, $description, $category, $condition, $listingID);
     $update_stmt->execute();
